@@ -1,0 +1,458 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "intro-header",
+      "cell_type": "markdown",
+      "source": "# Part 1: Introduction to Java\n\n## Welcome to Your Java Journey!\n\nThis tutorial series will take you from a complete beginner to being able to build real-world Java applications. By the end, you'll have a solid understanding of Java programming and be able to create your own projects.\n\n---\n\n## What is Java?\n\nJava is one of the most popular programming languages in the world. It was created by James Gosling at Sun Microsystems in 1995.\n\n### Key Features of Java:\n\n1. **Platform Independent** - Write once, run anywhere (WORA). Java code runs on any device with a Java Virtual Machine (JVM)\n2. **Object-Oriented** - Everything in Java is organized around objects and classes\n3. **Simple and Easy to Learn** - Clean syntax similar to English\n4. **Secure** - Built-in security features\n5. **Robust** - Strong memory management and exception handling\n\n### Where is Java Used?\n\n- Android mobile applications\n- Web applications (backend)\n- Enterprise software\n- Desktop applications\n- Scientific applications\n- Big Data technologies\n- Game development",
+      "metadata": {
+        "language": "markdown",
+        "id": "intro-header"
+      }
+    },
+    {
+      "id": "how-java-works",
+      "cell_type": "markdown",
+      "source": "## How Java Works\n\n```\n+------------------+     +------------------+     +------------------+\n|   Your Code      | --> |    Compiler      | --> |    Bytecode      |\n|   (.java file)   |     |    (javac)       |     |   (.class file)  |\n+------------------+     +------------------+     +------------------+\n                                                          |\n                                                          v\n                                               +------------------+\n                                               |       JVM        |\n                                               | (Java Virtual    |\n                                               |    Machine)      |\n                                               +------------------+\n                                                          |\n                                                          v\n                                               +------------------+\n                                               |   Your Program   |\n                                               |     Runs!        |\n                                               +------------------+\n```\n\n1. You write Java code in a `.java` file\n2. The Java compiler (`javac`) converts it to bytecode (`.class` file)\n3. The JVM reads the bytecode and runs your program\n\nThis is why Java is \"platform independent\" - the JVM is available for Windows, Mac, Linux, etc.",
+      "metadata": {
+        "language": "markdown",
+        "id": "how-java-works"
+      }
+    },
+    {
+      "id": "first-program-intro",
+      "cell_type": "markdown",
+      "source": "## Your First Java Program: Hello World!\n\nLet's write the traditional first program that every programmer writes. In this notebook environment, we can run Java code directly!\n\nThe simplest way to print something in Java is using `System.out.println()`:\n\n- `System` - A built-in class that provides access to the system\n- `out` - The output stream (your screen/console)\n- `println` - A method that prints a line of text\n\n### Let's try it!",
+      "metadata": {
+        "language": "markdown",
+        "id": "first-program-intro"
+      }
+    },
+    {
+      "id": "hello-world",
+      "cell_type": "code",
+      "source": "// This is your first Java program!\n// Lines starting with // are comments - they are ignored by Java\n\nSystem.out.println(\"Hello, World!\");",
+      "metadata": {
+        "language": "java",
+        "id": "hello-world",
+        "executionSummary": {
+          "executionOrder": 1,
+          "success": true
+        }
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Hello, World!\r\n"
+          },
+          "metadata": {},
+          "execution_count": 1
+        }
+      ]
+    },
+    {
+      "id": "85622216-a824-4ff8-b13b-4bd38120b3d5",
+      "cell_type": "code",
+      "source": "System.out.println(\"Hello, I am Chris\\nI am learning Java\");",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 9,
+          "success": true
+        }
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Hello, I am Chris\nI am learning Java\r\n"
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "id": "print-explanation",
+      "cell_type": "markdown",
+      "source": "### Understanding the Code\n\n1. `//` - This creates a **comment**. Comments are notes for humans and are ignored by Java\n2. `System.out.println()` - This is how we print text to the screen\n3. `\"Hello, World!\"` - Text inside double quotes is called a **String**\n4. `;` - Every statement in Java ends with a semicolon\n\n### print vs println\n\n- `println` - Prints text and moves to a new line\n- `print` - Prints text but stays on the same line\n\nLet's see the difference:",
+      "metadata": {
+        "language": "markdown",
+        "id": "print-explanation"
+      }
+    },
+    {
+      "id": "print-vs-println",
+      "cell_type": "code",
+      "source": "// Using println - each prints on a new line\nSystem.out.println(\"Line 1\");\nSystem.out.println(\"Line 2\");\nSystem.out.println(\"Line 3\");",
+      "metadata": {
+        "language": "java",
+        "id": "print-vs-println",
+        "executionSummary": {
+          "executionOrder": 10,
+          "success": true
+        }
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Line 1\r\nLine 2\r\nLine 3\r\n"
+          },
+          "metadata": {},
+          "execution_count": 10
+        }
+      ]
+    },
+    {
+      "id": "print-example",
+      "cell_type": "code",
+      "source": "// Using print - stays on the same line\nSystem.out.print(\"Hello \");\nSystem.out.print(\"World \");\nSystem.out.println(\"!\"); // println at the end to finish the line",
+      "metadata": {
+        "language": "java",
+        "id": "print-example",
+        "executionSummary": {
+          "executionOrder": 15,
+          "success": true
+        }
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Hello World !\r\n"
+          },
+          "metadata": {},
+          "execution_count": 15
+        }
+      ]
+    },
+    {
+      "id": "escape-sequences",
+      "cell_type": "markdown",
+      "source": "## Escape Sequences\n\nSometimes you need to include special characters in your text. Java uses **escape sequences** for this:\n\n| Escape Sequence | What it Does |\n|----------------|---------------|\n| `\\n` | New line |\n| `\\t` | Tab (indent) |\n| `\\\"` | Double quote |\n| `\\\\` | Backslash |\n\nLet's try them:",
+      "metadata": {
+        "language": "markdown",
+        "id": "escape-sequences"
+      }
+    },
+    {
+      "id": "escape-examples",
+      "cell_type": "code",
+      "source": "// New line within a string\nSystem.out.println(\"First Line\\nSecond Line\\nThird Line\");\n\nSystem.out.println(\"\"); // Empty line for spacing\n\n// Tab for indentation\nSystem.out.println(\"Name:\\tJohn\");\nSystem.out.println(\"Age:\\t25\");\nSystem.out.println(\"City:\\tNew York\");",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "0fc1b353-4018-4dcc-ad24-35808e3547d8",
+      "cell_type": "code",
+      "source": "System.out.print(\"First line\\nSecond line\\nThird line\");",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 17,
+          "success": true
+        }
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "First line\nSecond line\nThird line"
+          },
+          "metadata": {},
+          "execution_count": 17
+        }
+      ]
+    },
+    {
+      "id": "5f8af297-707e-49d6-98ba-12fe5be4f206",
+      "cell_type": "code",
+      "source": "System.out.println(\"Name:\\tChris\");\r\nSystem.out.println(\"City:\\tAbeokuta\");\r\nSystem.out.println(\"Track:\\tAI Engineering\")",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 21,
+          "success": true
+        }
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Name:\tChris\r\nCity:\tAbeokuta\r\nTrack:\tAI Engineering\r\n"
+          },
+          "metadata": {},
+          "execution_count": 21
+        }
+      ]
+    },
+    {
+      "id": "quotes-example",
+      "cell_type": "code",
+      "source": "// Including quotes in your text\nSystem.out.println(\"She said \\\"Hello!\\\" to me.\");\n\n// Including backslash\nSystem.out.println(\"File path: C:\\\\Users\\\\Documents\");",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "6bca54c7-1b96-4ba0-a325-ca8b0b962053",
+      "cell_type": "code",
+      "source": "System.out.println(\"She said \\'Hello!\\' to me\");",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 23,
+          "success": true
+        }
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "She said 'Hello!' to me\r\n"
+          },
+          "metadata": {},
+          "execution_count": 23
+        }
+      ]
+    },
+    {
+      "id": "user-input-intro",
+      "cell_type": "markdown",
+      "source": "## User Input with Scanner\n\nSo far we've been sending output TO the screen. But what about getting input FROM the user?\n\nJava uses the `Scanner` class to read user input.\n\n### Steps:\n1. **Import** the Scanner class: `import java.util.Scanner;`\n2. **Create** a Scanner object: `Scanner scanner = new Scanner(System.in);`\n3. **Read** input using Scanner methods\n4. **Close** the scanner when done: `scanner.close();`\n\n### Scanner Methods:\n\n| Method | What It Reads | Example |\n|--------|--------------|----------|\n| `nextLine()` | A full line of text | `\"Hello World\"` |\n| `next()` | A single word | `\"Hello\"` |\n| `nextInt()` | An integer | `42` |\n| `nextDouble()` | A decimal number | `3.14` |\n| `nextBoolean()` | true or false | `true` |\n\n### Let's try it!",
+      "metadata": {
+        "language": "markdown"
+      }
+    },
+    {
+      "id": "scanner-basic",
+      "cell_type": "code",
+      "source": "import java.util.Scanner;\n\n// Create a Scanner to read from keyboard\nScanner scanner = new Scanner(System.in);\n\n// Ask the user for their name\nSystem.out.print(\"Enter your name: \");\nString name = scanner.nextLine();\n\nSystem.out.println(\"Hello, \" + name + \"! Welcome to Java!\");\n\nscanner.close();",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "scanner-types-intro",
+      "cell_type": "markdown",
+      "source": "### Reading Different Data Types\n\nYou can read numbers, text, and booleans from the user:",
+      "metadata": {
+        "language": "markdown"
+      }
+    },
+    {
+      "id": "scanner-types",
+      "cell_type": "code",
+      "source": "import java.util.Scanner;\n\nScanner scanner = new Scanner(System.in);\n\n// Reading a String\nSystem.out.print(\"Enter your name: \");\nString name = scanner.nextLine();\n\n// Reading an int\nSystem.out.print(\"Enter your age: \");\nint age = scanner.nextInt();\n\n// Reading a double\nSystem.out.print(\"Enter your height (in meters): \");\ndouble height = scanner.nextDouble();\n\n// Display everything\nSystem.out.println(\"\\n--- Your Info ---\");\nSystem.out.println(\"Name: \" + name);\nSystem.out.println(\"Age: \" + age);\nSystem.out.println(\"Height: \" + height + \"m\");\n\nscanner.close();",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "scanner-gotcha",
+      "cell_type": "markdown",
+      "source": "### Common Gotcha: Mixing `nextLine()` with `nextInt()`/`nextDouble()`\n\nWhen you use `nextInt()` or `nextDouble()`, they DON'T consume the newline character (Enter key). So a `nextLine()` after them will read an empty line!\n\n**Fix**: Add an extra `scanner.nextLine()` after `nextInt()`/`nextDouble()` to consume the leftover newline.",
+      "metadata": {
+        "language": "markdown"
+      }
+    },
+    {
+      "id": "scanner-gotcha-example",
+      "cell_type": "code",
+      "source": "import java.util.Scanner;\n\nScanner scanner = new Scanner(System.in);\n\n// Reading a number first, then a string\nSystem.out.print(\"Enter your age: \");\nint age = scanner.nextInt();\nscanner.nextLine();  // Consume the leftover newline!\n\nSystem.out.print(\"Enter your city: \");\nString city = scanner.nextLine();  // Now this works correctly\n\nSystem.out.println(\"You are \" + age + \" years old and live in \" + city);\n\nscanner.close();",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "comments-section",
+      "cell_type": "markdown",
+      "source": "## Comments in Java\n\nComments are used to explain your code. They are ignored when the program runs.\n\n### Three Types of Comments:\n\n1. **Single-line comment**: `// comment here`\n2. **Multi-line comment**: `/* comment here */`\n3. **Documentation comment**: `/** comment here */` (used for generating documentation)",
+      "metadata": {
+        "language": "markdown",
+        "id": "comments-section"
+      }
+    },
+    {
+      "id": "comments-example",
+      "cell_type": "code",
+      "source": "// This is a single-line comment\n\n/* This is a multi-line comment.\n   It can span multiple lines.\n   Very useful for longer explanations. */\n\n/**\n * This is a documentation comment.\n * It's used to describe classes and methods.\n * Tools can automatically generate documentation from these.\n */\n\nSystem.out.println(\"Comments don't affect the output!\");",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "395d088b-781a-4545-b9e7-df4e1ecb345e",
+      "cell_type": "code",
+      "source": "// This is a single line comment\r\n\r\n\r\n/*AbstractCollection\r\n* This is another type of comment\r\n* This is called multi-line comment\r\n*/\r\n\r\n\r\n/** AbstractCollection\r\n\r\n * This is used for documentation\r\n * You can use it to document\r\n \r\n **/",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "practice-section",
+      "cell_type": "markdown",
+      "source": "## Practice Exercises\n\nNow it's your turn! Try these exercises in the code cells below:\n\n### Exercise 1: Personal Introduction\nPrint your name, age, and favorite hobby on separate lines.",
+      "metadata": {
+        "language": "markdown",
+        "id": "practice-section"
+      }
+    },
+    {
+      "id": "exercise-1",
+      "cell_type": "code",
+      "source": "// Exercise 1: Print your personal introduction\n// Example:\n// My name is [Your Name]\n// I am [Your Age] years old\n// My hobby is [Your Hobby]\n\n// Write your code below:\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "fb4021f3-1ae9-4859-97dc-0a289c8f2f77",
+      "cell_type": "code",
+      "source": "// SOlution\r\nSystem.out.println(\"My name is Chris.\");\r\nSystem.out.println(\"I am 28 years old.\");\r\n\r\nSystem.out.println(\"My hubby is talking to girls.\");",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 28,
+          "success": true
+        }
+      },
+      "execution_count": 28,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "My name is Chris.\r\nI am 28 years old.\r\nMy hubby is talking to girls.\r\n"
+          },
+          "metadata": {},
+          "execution_count": 28
+        }
+      ]
+    },
+    {
+      "id": "exercise-2-intro",
+      "cell_type": "markdown",
+      "source": "### Exercise 2: ASCII Art\nCreate a simple shape using print statements. Try making a rectangle or triangle!",
+      "metadata": {
+        "language": "markdown",
+        "id": "exercise-2-intro"
+      }
+    },
+    {
+      "id": "exercise-2",
+      "cell_type": "code",
+      "source": "// Exercise 2: Create ASCII art\n// Example - a simple rectangle:\n// *****\n// *   *\n// *   *\n// *****\n\n// Write your code below:\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "c1376ffe-52af-4e2f-a93d-59f5dadc5a4c",
+      "cell_type": "code",
+      "source": "// Creating a triangle\r\nSystem.out.println(\"************\\n*           *\\n*           *\\n*           *\\n*           *\\n************\\n\");",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 31,
+          "success": true
+        }
+      },
+      "execution_count": 31,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "************\n*           *\n*           *\n*           *\n*           *\n************\n\r\n"
+          },
+          "metadata": {},
+          "execution_count": 31
+        }
+      ]
+    },
+    {
+      "id": "exercise-3-intro",
+      "cell_type": "markdown",
+      "source": "### Exercise 3: Formatted Receipt\nCreate a simple receipt using tabs (\\t) for alignment.",
+      "metadata": {
+        "language": "markdown",
+        "id": "exercise-3-intro"
+      }
+    },
+    {
+      "id": "exercise-3",
+      "cell_type": "code",
+      "source": "// Exercise 3: Create a receipt\n// Example output:\n// ===== RECEIPT =====\n// Item        Price\n// Coffee      $3.50\n// Donut       $1.25\n// ==================\n// Total:      $4.75\n\n// Write your code below:\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "6d1fb9a4-f9a5-4a06-bbfa-6fabb145f941",
+      "cell_type": "code",
+      "source": "// Solution\r\nSystem.out.println(\"===== RECEIPT =====\");\r\nSystem.out.println(\"Item\\tPrice\");\r\nSystem.out.println(\"Coffee\\tN2000.00\");\r\nSystem.out.println(\"Donut\\tN1000.00\");\r\nSystem.out.println(\"===================\");\r\nSystem.out.println(\"Total:\\tN3000.00\");\r\nSystem.out.println(\"===================\");",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 33,
+          "success": true
+        }
+      },
+      "execution_count": 33,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "===== RECEIPT =====\r\nItem\tPrice\r\nCoffee\tN2000.00\r\nDonut\tN1000.00\r\n===================\r\nTotal:\tN3000.00\r\n===================\r\n"
+          },
+          "metadata": {},
+          "execution_count": 33
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "cell_type": "markdown",
+      "source": "## Summary - What You Learned\n\nIn this first part, you learned:\n\n- What Java is and why it's popular\n- How Java code is compiled and runs on the JVM\n- How to print text using `System.out.println()` and `System.out.print()`\n- The difference between `print` and `println`\n- How to use escape sequences (`\\n`, `\\t`, `\\\"`, `\\\\`)\n- How to get **user input** using the `Scanner` class\n- How to write comments in Java\n\n## Key Points to Remember\n\n1. Every statement ends with a semicolon `;`\n2. Text (Strings) must be in double quotes `\"text\"`\n3. Java is case-sensitive (`System` is not the same as `system`)\n4. Comments help explain your code and are ignored by Java\n5. Use `Scanner` for user input - remember to import it and close it\n\n---\n\n### Next Up: Part 2 - Variables and Data Types\n\nIn the next part, you'll learn how to store and work with data using variables!",
+      "metadata": {
+        "language": "markdown",
+        "id": "summary"
+      }
+    }
+  ]
+}
