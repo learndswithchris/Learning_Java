@@ -59,6 +59,15 @@
       ]
     },
     {
+      "id": "205bcd64-62cb-4158-964b-02a312e9922b",
+      "cell_type": "markdown",
+      "source": "- To run a .java file \r\n\r\nFirst compile it, using:\r\n\r\n```bash\r\njavac ClassName.java\r\n```\r\n- The code above will compile the code and will create a `ClassName.class` file in the same folder\r\n\r\nThe next step is to run\r\n\r\n```bash\r\njava ClassName\r\n```\r\n- This will now run the entire code and give output\r\n\r\n",
+      "metadata": {
+        "language": "markdown",
+        "id": "205bcd64-62cb-4158-964b-02a312e9922b"
+      }
+    },
+    {
       "id": "85622216-a824-4ff8-b13b-4bd38120b3d5",
       "cell_type": "code",
       "source": "System.out.println(\"Hello, I am Chris\\nI am learning Java\");",
@@ -279,6 +288,7 @@
       "source": "import java.util.Scanner;\r\n\r\nScanner scanner = new Scanner(System.in);\r\n\r\nSystem.out.print(\"Enter a new task: \");\r\nString task = scanner.nextLine();\r\n\r\nSystem.out.println(\"This is your task: \" + task);\r\nscanner.close();",
       "metadata": {
         "language": "java",
+        "id": "a4ab6bd4-92c6-4207-a8a9-366fed3bdad3",
         "executionSummary": {
           "executionOrder": 11,
           "success": false
