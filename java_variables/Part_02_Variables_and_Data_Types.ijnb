@@ -1,0 +1,422 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "header",
+      "cell_type": "markdown",
+      "source": "# Part 2: Variables and Data Types\n\n## What is a Variable?\n\nA **variable** is like a container or a box that stores data. Think of it as a labeled box where you can put information and retrieve it later.\n\n```\n+--------+      +--------+      +--------+\n|   25   |      | \"John\" |      |  true  |\n+--------+      +--------+      +--------+\n   age           name          isStudent\n```\n\nEach variable has:\n1. **Name** - A label to identify the box (like `age`)\n2. **Type** - What kind of data it can hold (numbers, text, etc.)\n3. **Value** - The actual data stored inside",
+      "metadata": {
+        "language": "markdown",
+        "id": "header"
+      }
+    },
+    {
+      "id": "declaring-variables",
+      "cell_type": "markdown",
+      "source": "## Declaring Variables\n\nTo create a variable in Java, you need to:\n1. Specify the **data type**\n2. Give it a **name**\n3. Optionally, assign a **value**\n\n### Syntax:\n```java\ndataType variableName = value;\n```\n\n### Example:",
+      "metadata": {
+        "language": "markdown",
+        "id": "declaring-variables"
+      }
+    },
+    {
+      "id": "first-variable",
+      "cell_type": "code",
+      "source": "// Declaring and initializing a variable\nint age = 25;\n\n// Now we can use it!\nSystem.out.println(\"My age is: \" + age);",
+      "metadata": {
+        "language": "java",
+        "id": "first-variable",
+        "executionSummary": {
+          "executionOrder": 1,
+          "success": true
+        }
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "My age is: 25\r\n"
+          },
+          "metadata": {},
+          "execution_count": 1
+        }
+      ]
+    },
+    {
+      "id": "variable-steps",
+      "cell_type": "code",
+      "source": "// You can also declare first, then assign later\nint score;          // Declaration\nscore = 100;        // Assignment\n\nSystem.out.println(\"Score: \" + score);\n\n// You can change the value anytime\nscore = 150;        // Reassignment\nSystem.out.println(\"New Score: \" + score);",
+      "metadata": {
+        "language": "java",
+        "id": "variable-steps",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Score: 100\r\nNew Score: 150\r\n"
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "data-types-intro",
+      "cell_type": "markdown",
+      "source": "## Data Types in Java\n\nJava has two categories of data types:\n\n### 1. Primitive Data Types (8 types)\nThese are the basic building blocks - simple values stored directly in memory.\n\n### 2. Reference Data Types\nThese refer to objects (we'll cover these more in OOP sections).\n\n---\n\n## Primitive Data Types\n\n| Type | Size | Description | Example |\n|------|------|-------------|----------|\n| `byte` | 1 byte | Very small integers (-128 to 127) | `byte b = 100;` |\n| `short` | 2 bytes | Small integers (-32,768 to 32,767) | `short s = 5000;` |\n| `int` | 4 bytes | Standard integers (~-2 billion to 2 billion) | `int i = 100000;` |\n| `long` | 8 bytes | Large integers | `long l = 15000000000L;` |\n| `float` | 4 bytes | Decimal numbers (less precise) | `float f = 5.75f;` |\n| `double` | 8 bytes | Decimal numbers (more precise) | `double d = 19.99;` |\n| `boolean` | 1 bit | True or false | `boolean b = true;` |\n| `char` | 2 bytes | Single character | `char c = 'A';` |",
+      "metadata": {
+        "language": "markdown",
+        "id": "data-types-intro"
+      }
+    },
+    {
+      "id": "integer-types",
+      "cell_type": "markdown",
+      "source": "## Integer Types\n\nFor whole numbers (no decimals), use `int` most of the time. It's the most commonly used.",
+      "metadata": {
+        "language": "markdown",
+        "id": "integer-types"
+      }
+    },
+    {
+      "id": "integer-examples",
+      "cell_type": "code",
+      "source": "// Integer types - for whole numbers\nbyte smallNumber = 100;         // -128 to 127\nshort mediumNumber = 30000;     // -32,768 to 32,767  \nint regularNumber = 2000000000; // Most commonly used!\nlong bigNumber = 9000000000L;   // Note the 'L' at the end!\n\nSystem.out.println(\"byte: \" + smallNumber);\nSystem.out.println(\"short: \" + mediumNumber);\nSystem.out.println(\"int: \" + regularNumber);\nSystem.out.println(\"long: \" + bigNumber);",
+      "metadata": {
+        "language": "java",
+        "id": "integer-examples",
+        "executionSummary": {
+          "executionOrder": 3,
+          "success": true
+        }
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "byte: 100\r\nshort: 30000\r\nint: 2000000000\r\nlong: 9000000000\r\n"
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "id": "float-intro",
+      "cell_type": "markdown",
+      "source": "## Floating-Point Types\n\nFor numbers with decimals, use `double` (it's more precise and commonly used).",
+      "metadata": {
+        "language": "markdown",
+        "id": "float-intro"
+      }
+    },
+    {
+      "id": "float-examples",
+      "cell_type": "code",
+      "source": "// Floating-point types - for decimal numbers\nfloat price = 19.99f;      // Note the 'f' at the end!\ndouble pi = 3.14159265359; // More precise, no suffix needed\n\nSystem.out.println(\"Price: N\" + price);\nSystem.out.println(\"Pi: \" + pi);\n\n// double is the default for decimal numbers\ndouble temperature = 37;\nSystem.out.println(\"Temperature: \" + temperature + \"°C\");",
+      "metadata": {
+        "language": "java",
+        "id": "float-examples",
+        "executionSummary": {
+          "executionOrder": 6,
+          "success": true
+        }
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Price: N19.99\r\nPi: 3.14159265359\r\nTemperature: 37.0�C\r\n"
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "id": "boolean-intro",
+      "cell_type": "markdown",
+      "source": "## Boolean Type\n\nBooleans can only have two values: `true` or `false`. They're used for conditions and logic.",
+      "metadata": {
+        "language": "markdown",
+        "id": "boolean-intro"
+      }
+    },
+    {
+      "id": "boolean-examples",
+      "cell_type": "code",
+      "source": "// Boolean - true or false\nboolean isJavaFun = true;\nboolean isRaining = false;\nboolean isAdult = true;\n\nSystem.out.println(\"Is Java fun? \" + isJavaFun);\nSystem.out.println(\"Is it raining? \" + isRaining);\nSystem.out.println(\"Is adult? \" + isAdult);\n\n// Booleans are often the result of comparisons\nboolean result = 10 > 5;  // true because 10 is greater than 5\nSystem.out.println(\"Is 10 > 5? \" + result);",
+      "metadata": {
+        "language": "java",
+        "id": "boolean-examples",
+        "executionSummary": {
+          "executionOrder": 7,
+          "success": true
+        }
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Is Java fun? true\r\nIs it raining? false\r\nIs adult? true\r\nIs 10 > 5? true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "id": "char-intro",
+      "cell_type": "markdown",
+      "source": "## Character Type\n\nThe `char` type holds a single character. Characters use **single quotes** (not double quotes!).",
+      "metadata": {
+        "language": "markdown",
+        "id": "char-intro"
+      }
+    },
+    {
+      "id": "char-examples",
+      "cell_type": "code",
+      "source": "// Char - single character with single quotes\nchar grade = 'A';\nchar initial = 'J';\nchar symbol = '@';\nchar digit = '7';  // This is a character, not a number!\n\nSystem.out.println(\"Grade: \" + grade);\nSystem.out.println(\"Initial: \" + initial);\nSystem.out.println(\"Symbol: \" + symbol);\nSystem.out.println(\"Digit character: \" + digit);",
+      "metadata": {
+        "language": "java",
+        "id": "char-examples",
+        "executionSummary": {
+          "executionOrder": 8,
+          "success": true
+        }
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Grade: A\r\nInitial: J\r\nSymbol: @\r\nDigit character: 7\r\n"
+          },
+          "metadata": {},
+          "execution_count": 8
+        }
+      ]
+    },
+    {
+      "id": "string-intro",
+      "cell_type": "markdown",
+      "source": "## Strings (Reference Type)\n\n`String` is not a primitive type - it's a class (reference type). But it's so commonly used that we'll cover it here.\n\nStrings hold **text** and use **double quotes**.",
+      "metadata": {
+        "language": "markdown",
+        "id": "string-intro"
+      }
+    },
+    {
+      "id": "string-examples",
+      "cell_type": "code",
+      "source": "// Strings - text with double quotes\nString name = \"John Doe\";\nString greeting = \"Hello, World!\";\nString empty = \"\";  // Empty string\n\nSystem.out.println(name);\nSystem.out.println(greeting);\nSystem.out.println(\"Name length: \" + name.length()); // Strings have methods!",
+      "metadata": {
+        "language": "java",
+        "id": "string-examples",
+        "executionSummary": {
+          "executionOrder": 9,
+          "success": true
+        }
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "John Doe\r\nHello, World!\r\nName length: 8\r\n"
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "id": "string-concat",
+      "cell_type": "code",
+      "source": "// String concatenation (joining strings)\nString firstName = \"Chris\";\nString lastName = \"Ekwugum\";\n\n// Method 1: Using + operator\nString fullName = firstName + \" \" + lastName;\nSystem.out.println(\"Full name: \" + fullName);\n\n// Combining strings with other types\nint id = 345;\nSystem.out.println(firstName + \" has ID: \" + id);",
+      "metadata": {
+        "language": "java",
+        "id": "string-concat",
+        "executionSummary": {
+          "executionOrder": 11,
+          "success": true
+        }
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Full name: Chris Ekwugum\r\nChris has ID: 345\r\n"
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "id": "naming-rules",
+      "cell_type": "markdown",
+      "source": "## Variable Naming Rules\n\n### Must Follow (or you'll get errors):\n1. Names can contain letters, digits, underscores `_`, and dollar signs `$`\n2. Names must begin with a letter, `_`, or `$` (not a digit)\n3. Names are case-sensitive (`age` and `Age` are different)\n4. Reserved words cannot be used (like `int`, `class`, `for`, etc.)\n\n### Best Practices (conventions):\n1. Use **camelCase** for variable names: `firstName`, `totalScore`\n2. Use descriptive names: `studentAge` is better than `sa`\n3. Start with a lowercase letter\n4. Constants use UPPER_CASE: `MAX_VALUE`, `PI`",
+      "metadata": {
+        "language": "markdown",
+        "id": "naming-rules"
+      }
+    },
+    {
+      "id": "naming-examples",
+      "cell_type": "code",
+      "source": "// Good variable names\nint studentAge = 20;\nString firstName = \"Onyekachi\";\ndouble accountBalance = 1000.50;\nboolean isLoggedIn = true;\n\n// Bad variable names (but technically valid)\nint x = 5;           // Not descriptive\nint myAge = 25;      // Should be camelCase\nint studentAge = 18; // Underscores not preferred in Java\n\n// Constants (final means they can't be changed)\nfinal double PI = 3.14159;\nfinal int MAX_STUDENTS = 30;\n\nSystem.out.println(\"Student age: \" + studentAge);\nSystem.out.println(\"PI constant: \" + PI);",
+      "metadata": {
+        "language": "java",
+        "id": "naming-examples",
+        "executionSummary": {
+          "executionOrder": 12,
+          "success": true
+        }
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Student age: 18\r\nPI constant: 3.14159\r\n"
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "id": "type-casting-intro",
+      "cell_type": "markdown",
+      "source": "## Type Casting\n\nSometimes you need to convert one data type to another. This is called **type casting**.\n\n### Two Types of Casting:\n\n1. **Widening (Automatic)** - Converting a smaller type to a larger type\n   - byte -> short -> int -> long -> float -> double\n   \n2. **Narrowing (Manual)** - Converting a larger type to a smaller type\n   - double -> float -> long -> int -> short -> byte",
+      "metadata": {
+        "language": "markdown",
+        "id": "type-casting-intro"
+      }
+    },
+    {
+      "id": "widening-casting",
+      "cell_type": "code",
+      "source": "// Widening Casting (automatic) - no data loss\nint myInt = 100;\ndouble myDouble = myInt;  // Automatic conversion\n\nSystem.out.println(\"int value: \" + myInt);\nSystem.out.println(\"double value: \" + myDouble);\n\n// Another example\nchar letter = 'A';\nint asciiValue = letter;  // char to int (gives ASCII value)\nSystem.out.println(\"Character: \" + letter);\nSystem.out.println(\"ASCII value: \" + asciiValue);",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "narrowing-casting",
+      "cell_type": "code",
+      "source": "// Narrowing Casting (manual) - might lose data!\ndouble myDouble = 9.78;\nint myInt = (int) myDouble;  // Must use (int) to cast\n\nSystem.out.println(\"double value: \" + myDouble);\nSystem.out.println(\"int value: \" + myInt);  // Decimal part is lost!\n\n// Another example\nint bigNumber = 130;\nbyte smallNumber = (byte) bigNumber; // Careful! byte max is 127\nSystem.out.println(\"Original int: \" + bigNumber);\nSystem.out.println(\"After casting to byte: \" + smallNumber); // Overflow!",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "practical-example",
+      "cell_type": "markdown",
+      "source": "## Practical Example: Student Information System\n\nLet's put it all together with a practical example:",
+      "metadata": {
+        "language": "markdown",
+        "id": "practical-example"
+      }
+    },
+    {
+      "id": "student-example",
+      "cell_type": "code",
+      "source": "// Student Information System\n\n// Student details using various data types\nString studentName = \"Alice Johnson\";\nint studentId = 12345;\nint age = 20;\nchar grade = 'A';\ndouble gpa = 3.85;\nboolean isEnrolled = true;\nboolean hasScholarship = true;\n\n// Display student information\nSystem.out.println(\"===== STUDENT PROFILE =====\");\nSystem.out.println(\"Name: \" + studentName);\nSystem.out.println(\"ID: \" + studentId);\nSystem.out.println(\"Age: \" + age);\nSystem.out.println(\"Grade: \" + grade);\nSystem.out.println(\"GPA: \" + gpa);\nSystem.out.println(\"Enrolled: \" + isEnrolled);\nSystem.out.println(\"Scholarship: \" + hasScholarship);\nSystem.out.println(\"===========================\");",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "exercises-intro",
+      "cell_type": "markdown",
+      "source": "## Practice Exercises\n\n### Exercise 1: Personal Profile\nCreate variables to store your own profile information and print them.",
+      "metadata": {
+        "language": "markdown",
+        "id": "exercises-intro"
+      }
+    },
+    {
+      "id": "exercise-1",
+      "cell_type": "code",
+      "source": "// Exercise 1: Create your personal profile\n// Include: name, age, height (decimal), favorite letter, and whether you like programming\n\n// Write your code below:\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "exercise-2-intro",
+      "cell_type": "markdown",
+      "source": "### Exercise 2: Product Information\nCreate variables for a product in an online store.",
+      "metadata": {
+        "language": "markdown",
+        "id": "exercise-2-intro"
+      }
+    },
+    {
+      "id": "exercise-2",
+      "cell_type": "code",
+      "source": "// Exercise 2: Product Information\n// Create variables for: productName, productId, price, quantity, isInStock\n// Calculate and display the total value (price * quantity)\n\n// Write your code below:\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "exercise-3-intro",
+      "cell_type": "markdown",
+      "source": "### Exercise 3: Temperature Converter\nStore a temperature in Celsius and convert it to Fahrenheit.\nFormula: F = (C * 9/5) + 32",
+      "metadata": {
+        "language": "markdown",
+        "id": "exercise-3-intro"
+      }
+    },
+    {
+      "id": "exercise-3",
+      "cell_type": "code",
+      "source": "// Exercise 3: Temperature Conversion\n// Store a temperature in Celsius\n// Convert it to Fahrenheit using: F = (C * 9/5) + 32\n// Print both values\n\n// Write your code below:\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "summary",
+      "cell_type": "markdown",
+      "source": "## Summary - What You Learned\n\nIn this part, you learned:\n\n- What variables are and how to declare them\n- The 8 primitive data types:\n  - Integer types: `byte`, `short`, `int`, `long`\n  - Floating-point types: `float`, `double`\n  - Boolean type: `boolean`\n  - Character type: `char`\n- How to use Strings for text\n- Variable naming rules and conventions (camelCase)\n- Type casting (widening and narrowing)\n\n## Quick Reference\n\n| Type | Use For | Example |\n|------|---------|----------|\n| `int` | Whole numbers | `int age = 25;` |\n| `double` | Decimal numbers | `double price = 19.99;` |\n| `boolean` | True/false | `boolean isValid = true;` |\n| `char` | Single character | `char letter = 'A';` |\n| `String` | Text | `String name = \"John\";` |\n\n---\n\n### Next Up: Part 3 - Operators\n\nLearn how to perform calculations and comparisons!",
+      "metadata": {
+        "language": "markdown",
+        "id": "summary"
+      }
+    }
+  ]
+}
