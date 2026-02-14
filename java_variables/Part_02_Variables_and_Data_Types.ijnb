@@ -406,12 +406,26 @@
     {
       "id": "exercise-1",
       "cell_type": "code",
-      "source": "// Exercise 1: Create your personal profile\n// Include: name, age, height (decimal), favorite letter, and whether you like programming\n\n// Write your code below:\n",
+      "source": "// Exercise 1: Create your personal profile\n// Include: name, age, height (decimal), favorite letter, and whether you like programming\n\n// Write your code below:\nString name = \"Onyekachi Ekwugum\";\nint age = 18;\ndouble height = 2.3; // in meters\nchar favoriteLetter = 'A';\nboolean likesProgramming = true;\n\nSystem.out.println(\"=====MY PERSONAL PROFILE =====\");\nSystem.out.println(\"Name: \" + name);\nSystem.out.println(\"Age: \" + age);\nSystem.out.println(\"Height: \" + height + \" meters\");\nSystem.out.println(\"Favorite Letter: \" + favoriteLetter);\nSystem.out.println(\"Likes Programming: \" + likesProgramming);\nSystem.out.println(\"============================\");\n",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "exercise-1",
+        "executionSummary": {
+          "executionOrder": 16,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "=====MY PERSONAL PROFILE =====\r\nName: Onyekachi Ekwugum\r\nAge: 18\r\nHeight: 2.3 meters\r\nFavorite Letter: A\r\nLikes Programming: true\r\n============================\r\n"
+          },
+          "metadata": {},
+          "execution_count": 16
+        }
+      ]
     },
     {
       "id": "exercise-2-intro",
@@ -425,12 +439,26 @@
     {
       "id": "exercise-2",
       "cell_type": "code",
-      "source": "// Exercise 2: Product Information\n// Create variables for: productName, productId, price, quantity, isInStock\n// Calculate and display the total value (price * quantity)\n\n// Write your code below:\n",
+      "source": "// Exercise 2: Product Information\n// Create variables for: productName, productId, price, quantity, isInStock\n// Calculate and display the total value (price * quantity)\n\n// Write your code below:\nString productName = \"Lenovo Thinkpad Laptop\";\nint productId = 98765;\ndouble price = 800000.00;\nint quantity = 5;\nboolean isInStock = true;\n\ndouble totalValue = price * quantity;\n\nSystem.out.println(\"===== PRODUCT INFORMATION =====\");\nSystem.out.println(\"Product Name: \" + productName);\nSystem.out.println(\"Product ID: \" + productId);\nSystem.out.println(\"Price: N\" + price);\nSystem.out.println(\"Quantity: \" + quantity);\nSystem.out.println(\"In Stock: \" + isInStock);\nSystem.out.println(\"Total Value: N\" + totalValue);\nSystem.out.println(\"==============================\");",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "exercise-2",
+        "executionSummary": {
+          "executionOrder": 17,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "===== PRODUCT INFORMATION =====\r\nProduct Name: Lenovo Thinkpad Laptop\r\nProduct ID: 98765\r\nPrice: N800000.0\r\nQuantity: 5\r\nIn Stock: true\r\nTotal Value: N4000000.0\r\n==============================\r\n"
+          },
+          "metadata": {},
+          "execution_count": 17
+        }
+      ]
     },
     {
       "id": "exercise-3-intro",
@@ -444,12 +472,26 @@
     {
       "id": "exercise-3",
       "cell_type": "code",
-      "source": "// Exercise 3: Temperature Conversion\n// Store a temperature in Celsius\n// Convert it to Fahrenheit using: F = (C * 9/5) + 32\n// Print both values\n\n// Write your code below:\n",
+      "source": "// Exercise 3: Temperature Conversion\n// Store a temperature in Celsius\n// Convert it to Fahrenheit using: F = (C * 9/5) + 32\n// Print both values\n\n// Write your code below:\nint temperature = 32; // Celsius\ndouble fahrenheit = (temperature * 9/5) + 32;\nSystem.out.println(\"Temperature in Celsius: \" + temperature + \"°C\");\nSystem.out.println(\"Temperature in Fahrenheit: \" + fahrenheit + \"°F\");",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "exercise-3",
+        "executionSummary": {
+          "executionOrder": 20,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Temperature in Celsius: 32�C\r\nTemperature in Fahrenheit: 89.0�F\r\n"
+          },
+          "metadata": {},
+          "execution_count": 20
+        }
+      ]
     },
     {
       "id": "summary",
