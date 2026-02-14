@@ -318,20 +318,48 @@
       "cell_type": "code",
       "source": "// Widening Casting (automatic) - no data loss\nint myInt = 100;\ndouble myDouble = myInt;  // Automatic conversion\n\nSystem.out.println(\"int value: \" + myInt);\nSystem.out.println(\"double value: \" + myDouble);\n\n// Another example\nchar letter = 'A';\nint asciiValue = letter;  // char to int (gives ASCII value)\nSystem.out.println(\"Character: \" + letter);\nSystem.out.println(\"ASCII value: \" + asciiValue);",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "widening-casting",
+        "executionSummary": {
+          "executionOrder": 13,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "int value: 100\r\ndouble value: 100.0\r\nCharacter: A\r\nASCII value: 65\r\n"
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
     },
     {
       "id": "narrowing-casting",
       "cell_type": "code",
       "source": "// Narrowing Casting (manual) - might lose data!\ndouble myDouble = 9.78;\nint myInt = (int) myDouble;  // Must use (int) to cast\n\nSystem.out.println(\"double value: \" + myDouble);\nSystem.out.println(\"int value: \" + myInt);  // Decimal part is lost!\n\n// Another example\nint bigNumber = 130;\nbyte smallNumber = (byte) bigNumber; // Careful! byte max is 127\nSystem.out.println(\"Original int: \" + bigNumber);\nSystem.out.println(\"After casting to byte: \" + smallNumber); // Overflow!",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "narrowing-casting",
+        "executionSummary": {
+          "executionOrder": 14,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "double value: 9.78\r\nint value: 9\r\nOriginal int: 130\r\nAfter casting to byte: -126\r\n"
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
     },
     {
       "id": "practical-example",
@@ -345,12 +373,26 @@
     {
       "id": "student-example",
       "cell_type": "code",
-      "source": "// Student Information System\n\n// Student details using various data types\nString studentName = \"Alice Johnson\";\nint studentId = 12345;\nint age = 20;\nchar grade = 'A';\ndouble gpa = 3.85;\nboolean isEnrolled = true;\nboolean hasScholarship = true;\n\n// Display student information\nSystem.out.println(\"===== STUDENT PROFILE =====\");\nSystem.out.println(\"Name: \" + studentName);\nSystem.out.println(\"ID: \" + studentId);\nSystem.out.println(\"Age: \" + age);\nSystem.out.println(\"Grade: \" + grade);\nSystem.out.println(\"GPA: \" + gpa);\nSystem.out.println(\"Enrolled: \" + isEnrolled);\nSystem.out.println(\"Scholarship: \" + hasScholarship);\nSystem.out.println(\"===========================\");",
+      "source": "// Student Information System\n\n// Student details using various data types\nString studentName = \"Chris Ekwugum\";\nint studentId = 12345;\nint age = 18;\nchar grade = 'A';\ndouble gpa = 3.85;\nboolean isEnrolled = true;\nboolean hasScholarship = true;\n\n// Display student information\nSystem.out.println(\"===== STUDENT PROFILE =====\");\nSystem.out.println(\"Name: \" + studentName);\nSystem.out.println(\"ID: \" + studentId);\nSystem.out.println(\"Age: \" + age);\nSystem.out.println(\"Grade: \" + grade);\nSystem.out.println(\"GPA: \" + gpa);\nSystem.out.println(\"Enrolled: \" + isEnrolled);\nSystem.out.println(\"Scholarship: \" + hasScholarship);\nSystem.out.println(\"===========================\");",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "student-example",
+        "executionSummary": {
+          "executionOrder": 15,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "===== STUDENT PROFILE =====\r\nName: Chris Ekwugum\r\nID: 12345\r\nAge: 18\r\nGrade: A\r\nGPA: 3.85\r\nEnrolled: true\r\nScholarship: true\r\n===========================\r\n"
+          },
+          "metadata": {},
+          "execution_count": 15
+        }
+      ]
     },
     {
       "id": "exercises-intro",
