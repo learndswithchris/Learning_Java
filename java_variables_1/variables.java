@@ -1,4 +1,4 @@
-package Learning_Java.java_variables;
+package Learning_Java.java_variables_1;
 
 
 // Variables in Java

@@ -1,3 +1,4 @@
+
 public class JavaOutput {
     public static  void main(String[] args){
         // Output statements in java

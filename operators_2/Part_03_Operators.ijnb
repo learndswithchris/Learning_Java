@@ -1,0 +1,932 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "header",
+      "cell_type": "markdown",
+      "source": "# Part 3: Operators\n\n## What are Operators?\n\nOperators are special symbols that perform operations on variables and values. They're like the verbs of programming - they make things happen!\n\n## Types of Operators in Java\n\n1. **Arithmetic Operators** - Math operations\n2. **Assignment Operators** - Assigning values\n3. **Comparison Operators** - Comparing values\n4. **Logical Operators** - Boolean logic\n5. **Unary Operators** - Operations on single operand\n6. **Ternary Operator** - Shorthand if-else",
+      "metadata": {
+        "language": "markdown",
+        "id": "header"
+      }
+    },
+    {
+      "id": "arithmetic-intro",
+      "cell_type": "markdown",
+      "source": "## 1. Arithmetic Operators\n\nUsed for basic math operations.\n\n| Operator | Name | Example | Result |\n|----------|------|---------|--------|\n| `+` | Addition | `5 + 3` | `8` |\n| `-` | Subtraction | `5 - 3` | `2` |\n| `*` | Multiplication | `5 * 3` | `15` |\n| `/` | Division | `15 / 3` | `5` |\n| `%` | Modulus (remainder) | `17 % 5` | `2` |",
+      "metadata": {
+        "language": "markdown",
+        "id": "arithmetic-intro"
+      }
+    },
+    {
+      "id": "arithmetic-examples",
+      "cell_type": "code",
+      "source": "// Arithmetic Operators\nint a = 10;\nint b = 3;\n\nSystem.out.println(\"a = \" + a + \", b = \" + b);\nSystem.out.println(\"----------------\");\n\nSystem.out.println(\"Addition: a + b = \" + (a + b));        // 13\nSystem.out.println(\"Subtraction: a - b = \" + (a - b));     // 7\nSystem.out.println(\"Multiplication: a * b = \" + (a * b));  // 30\nSystem.out.println(\"Division: a / b = \" + (a / b));        // 3 (integer division!)\nSystem.out.println(\"Modulus: a % b = \" + (a % b));         // 1 (remainder)",
+      "metadata": {
+        "language": "java",
+        "id": "arithmetic-examples",
+        "executionSummary": {
+          "executionOrder": 3,
+          "success": true
+        }
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "a = 10, b = 3\r\n----------------\r\nAddition: a + b = 13\r\nSubtraction: a - b = 7\r\nMultiplication: a * b = 30\r\nDivision: a / b = 3\r\nModulus: a % b = 1\r\n"
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "id": "5257ae23-235a-41f1-9b28-be2cf49ec50d",
+      "cell_type": "code",
+      "source": "int price = 300;\r\nint quantity = 4;\r\n\r\nint totalCost = price * quantity;\r\nSystem.out.print(\"Total Cost: N\" + totalCost);",
+      "metadata": {
+        "language": "java",
+        "id": "5257ae23-235a-41f1-9b28-be2cf49ec50d",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Total Cost: N1200"
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "division-warning",
+      "cell_type": "markdown",
+      "source": "### Important: Integer vs Decimal Division\n\nWhen dividing two integers, Java performs **integer division** (removes the decimal part).",
+      "metadata": {
+        "language": "markdown",
+        "id": "division-warning"
+      }
+    },
+    {
+      "id": "division-examples",
+      "cell_type": "code",
+      "source": "// Integer Division vs Decimal Division\n\n// Integer division - decimal part is lost!\nint x = 7;\nint y = 2;\nSystem.out.println(\"Integer division: 7 / 2 = \" + (x / y)); // Output: 3 (not 3.5!)\n\n// To get decimal result, at least one operand must be a decimal\ndouble result1 = 7.0 / 2;   // 3.5\ndouble result2 = 7 / 2.0;   // 3.5\ndouble result3 = (double) 7 / 2; // 3.5 (casting)\n\nSystem.out.println(\"Decimal division: 7.0 / 2 = \" + result1);\nSystem.out.println(\"Decimal division: 7 / 2.0 = \" + result2);\nSystem.out.println(\"With casting: (double)7 / 2 = \" + result3);",
+      "metadata": {
+        "language": "java",
+        "id": "division-examples",
+        "executionSummary": {
+          "executionOrder": 4,
+          "success": true
+        }
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Integer division: 7 / 2 = 3\r\nDecimal division: 7.0 / 2 = 3.5\r\nDecimal division: 7 / 2.0 = 3.5\r\nWith casting: (double)7 / 2 = 3.5\r\n"
+          },
+          "metadata": {},
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "id": "55f333f8-38d5-49e7-a904-337bef19db82",
+      "cell_type": "code",
+      "source": "// Type casting\r\n\r\nint rsult = (int) 30.0/3;\r\nSystem.out.print(rsult)",
+      "metadata": {
+        "language": "java",
+        "id": "55f333f8-38d5-49e7-a904-337bef19db82",
+        "executionSummary": {
+          "executionOrder": 12,
+          "success": true
+        }
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "10"
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "id": "modulus-explanation",
+      "cell_type": "markdown",
+      "source": "### The Modulus Operator (%)\n\nThe modulus operator returns the **remainder** after division. It's very useful for:\n- Checking if a number is even or odd\n- Wrapping around (like clock arithmetic)\n- Checking divisibility",
+      "metadata": {
+        "language": "markdown",
+        "id": "modulus-explanation"
+      }
+    },
+    {
+      "id": "modulus-examples",
+      "cell_type": "code",
+      "source": "// Modulus - Finding Remainders\nSystem.out.println(\"17 % 5 = \" + (17 % 5)); // 2 (17 = 5*3 + 2)\nSystem.out.println(\"20 % 4 = \" + (20 % 4)); // 0 (perfectly divisible)\nSystem.out.println(\"7 % 2 = \" + (7 % 2));   // 1 (odd number)\nSystem.out.println(\"8 % 2 = \" + (8 % 2));   // 0 (even number)\n\n// Practical use: Check if a number is even or odd\nint number = 19;\nif (number % 2 == 0) {\n    System.out.println(number + \" is even\");\n} else {\n    System.out.println(number + \" is odd\");\n}",
+      "metadata": {
+        "language": "java",
+        "id": "modulus-examples",
+        "executionSummary": {
+          "executionOrder": 3,
+          "success": true
+        }
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "17 % 5 = 2\r\n20 % 4 = 0\r\n7 % 2 = 1\r\n8 % 2 = 0\r\n19 is odd\r\n"
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "id": "ce634a67-314f-4887-bd8c-78348f0542f6",
+      "cell_type": "code",
+      "source": "int number = 189;\r\nif(number % 2 == 0)\r\n    {\r\n        System.out.println(number + \" Is even\");\r\n    }\r\n    else\r\n    {\r\n\r\n        System.out.println(number + \" Is odd\");\r\n    }",
+      "metadata": {
+        "language": "java",
+        "id": "ce634a67-314f-4887-bd8c-78348f0542f6",
+        "executionSummary": {
+          "executionOrder": 5,
+          "success": true
+        }
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "189 Is odd\r\n"
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "id": "assignment-intro",
+      "cell_type": "markdown",
+      "source": "## 2. Assignment Operators\n\nUsed to assign values to variables.\n\n| Operator | Example | Same As |\n|----------|---------|----------|\n| `=` | `x = 5` | `x = 5` |\n| `+=` | `x += 3` | `x = x + 3` |\n| `-=` | `x -= 3` | `x = x - 3` |\n| `*=` | `x *= 3` | `x = x * 3` |\n| `/=` | `x /= 3` | `x = x / 3` |\n| `%=` | `x %= 3` | `x = x % 3` |",
+      "metadata": {
+        "language": "markdown",
+        "id": "assignment-intro"
+      }
+    },
+    {
+      "id": "assignment-examples",
+      "cell_type": "code",
+      "source": "// Assignment Operators\nint x = 10;\nSystem.out.println(\"Initial x = \" + x);\n\nx += 5;  // Same as: x = x + 5\nSystem.out.println(\"After x += 5: \" + x);  // 15\n\nx -= 3;  // Same as: x = x - 3\nSystem.out.println(\"After x -= 3: \" + x);  // 12\n\nx *= 2;  // Same as: x = x * 2\nSystem.out.println(\"After x *= 2: \" + x);  // 24\n\nx /= 4;  // Same as: x = x / 4\nSystem.out.println(\"After x /= 4: \" + x);  // 6\n\nx %= 4;  // Same as: x = x % 4\nSystem.out.println(\"After x %= 4: \" + x);  // 2",
+      "metadata": {
+        "language": "java",
+        "id": "assignment-examples",
+        "executionSummary": {
+          "executionOrder": 6,
+          "success": true
+        }
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Initial x = 10\r\nAfter x += 5: 15\r\nAfter x -= 3: 12\r\nAfter x *= 2: 24\r\nAfter x /= 4: 6\r\nAfter x %= 4: 2\r\n"
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "id": "a392153c-85fe-45fd-9792-6966ab513339",
+      "cell_type": "code",
+      "source": "int price  = 500;\r\nprice += 500;\r\nSystem.out.println(\"Updated Price: N\" + price);",
+      "metadata": {
+        "language": "java",
+        "id": "a392153c-85fe-45fd-9792-6966ab513339",
+        "executionSummary": {
+          "executionOrder": 7,
+          "success": true
+        }
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Updated Price: N1000\r\n"
+          },
+          "metadata": {},
+          "execution_count": 7
+        }
+      ]
+    },
+    {
+      "id": "comparison-intro",
+      "cell_type": "markdown",
+      "source": "## 3. Comparison (Relational) Operators\n\nUsed to compare two values. They always return a `boolean` (`true` or `false`).\n\n| Operator | Name | Example | Result |\n|----------|------|---------|--------|\n| `==` | Equal to | `5 == 5` | `true` |\n| `!=` | Not equal to | `5 != 3` | `true` |\n| `>` | Greater than | `5 > 3` | `true` |\n| `<` | Less than | `5 < 3` | `false` |\n| `>=` | Greater than or equal | `5 >= 5` | `true` |\n| `<=` | Less than or equal | `5 <= 3` | `false` |",
+      "metadata": {
+        "language": "markdown",
+        "id": "comparison-intro"
+      }
+    },
+    {
+      "id": "comparison-examples",
+      "cell_type": "code",
+      "source": "// Comparison Operators\nint a = 10;\nint b = 5;\nint c = 10;\n\nSystem.out.println(\"a = \" + a + \", b = \" + b + \", c = \" + c);\nSystem.out.println(\"-------------------\");\n\nSystem.out.println(\"a == b: \" + (a == b));  // false\nSystem.out.println(\"a == c: \" + (a == c));  // true\nSystem.out.println(\"a != b: \" + (a != b));  // true\nSystem.out.println(\"a > b: \" + (a > b));    // true\nSystem.out.println(\"a < b: \" + (a < b));    // false\nSystem.out.println(\"a >= c: \" + (a >= c));  // true\nSystem.out.println(\"a <= b: \" + (a <= b));  // false",
+      "metadata": {
+        "language": "java",
+        "id": "comparison-examples",
+        "executionSummary": {
+          "executionOrder": 8,
+          "success": true
+        }
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "a = 10, b = 5, c = 10\r\n-------------------\r\na == b: false\r\na == c: true\r\na != b: true\r\na > b: true\r\na < b: false\r\na >= c: true\r\na <= b: false\r\n"
+          },
+          "metadata": {},
+          "execution_count": 8
+        }
+      ]
+    },
+    {
+      "id": "4e1dc8ea-c0cc-4714-b75c-9c981b2e5aa4",
+      "cell_type": "code",
+      "source": "double price = 2500.50;\r\ndouble discountPrice = 2000.75;\r\ndouble discountPercentage = (discountPrice / price) * 100;\r\nSystem.out.println(discountPercentage);",
+      "metadata": {
+        "language": "java",
+        "id": "4e1dc8ea-c0cc-4714-b75c-9c981b2e5aa4",
+        "executionSummary": {
+          "executionOrder": 9,
+          "success": true
+        }
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "80.01399720055988\r\n"
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "id": "cac2fd53-a6de-4107-aff1-2a2e581d1323",
+      "cell_type": "code",
+      "source": "System.out.println(price == discountPrice);\r\nSystem.out.println(price != discountPrice);\r\nSystem.out.println(price > discountPrice);\r\nSystem.out.println(price < discountPrice);\r\nSystem.out.println(price >= discountPrice);\r\nSystem.out.println(price <= discountPrice);",
+      "metadata": {
+        "language": "java",
+        "id": "cac2fd53-a6de-4107-aff1-2a2e581d1323",
+        "executionSummary": {
+          "executionOrder": 10,
+          "success": true
+        }
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "false\r\ntrue\r\ntrue\r\nfalse\r\ntrue\r\nfalse\r\n"
+          },
+          "metadata": {},
+          "execution_count": 10
+        }
+      ]
+    },
+    {
+      "id": "equals-warning",
+      "cell_type": "markdown",
+      "source": "### Important: `=` vs `==`\n\n- `=` is the **assignment** operator (gives a value)\n- `==` is the **comparison** operator (checks equality)\n\nThis is a very common mistake for beginners!",
+      "metadata": {
+        "language": "markdown",
+        "id": "equals-warning"
+      }
+    },
+    {
+      "id": "equals-example",
+      "cell_type": "code",
+      "source": "int score = 100;     // Assignment: score gets the value 100\nboolean isMax = (score == 100);  // Comparison: is score equal to 100?\n\nSystem.out.println(\"score = \" + score);\nSystem.out.println(\"Is score equal to 100? \" + isMax);",
+      "metadata": {
+        "language": "java",
+        "id": "equals-example",
+        "executionSummary": {
+          "executionOrder": 11,
+          "success": true
+        }
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "score = 100\r\nIs score equal to 100? true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "id": "5898f4fa-ff4d-4a40-bfc4-3582e6e85ea3",
+      "cell_type": "code",
+      "source": "System.out.println(isMax)",
+      "metadata": {
+        "language": "java",
+        "id": "5898f4fa-ff4d-4a40-bfc4-3582e6e85ea3",
+        "executionSummary": {
+          "executionOrder": 12,
+          "success": true
+        }
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "id": "logical-intro",
+      "cell_type": "markdown",
+      "source": "## 4. Logical Operators\n\nUsed to combine multiple boolean expressions.\n\n| Operator | Name | Description | Example |\n|----------|------|-------------|----------|\n| `&&` | AND | True if BOTH are true | `true && true` = `true` |\n| `\\|\\|` | OR | True if AT LEAST ONE is true | `true \\|\\| false` = `true` |\n| `!` | NOT | Reverses the boolean | `!true` = `false` |\n\n### Truth Tables\n\n**AND (&&):**\n| A | B | A && B |\n|---|---|--------|\n| true | true | true |\n| true | false | false |\n| false | true | false |\n| false | false | false |\n\n**OR (||):**\n| A | B | A \\|\\| B |\n|---|---|--------|\n| true | true | true |\n| true | false | true |\n| false | true | true |\n| false | false | false |",
+      "metadata": {
+        "language": "markdown",
+        "id": "logical-intro"
+      }
+    },
+    {
+      "id": "12e459ec-2e5d-4485-ac9e-f62dbcf0bddd",
+      "cell_type": "code",
+      "source": "boolean isActive = false;\r\nboolean isLogin = true;\r\n\r\n\r\nSystem.out.println(isActive && isLogin);",
+      "metadata": {
+        "language": "java",
+        "id": "12e459ec-2e5d-4485-ac9e-f62dbcf0bddd",
+        "executionSummary": {
+          "executionOrder": 13,
+          "success": true
+        }
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "false\r\n"
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "id": "logical-examples",
+      "cell_type": "code",
+      "source": "// Logical Operators\nboolean a = true;\nboolean b = false;\n\nSystem.out.println(\"a = \" + a + \", b = \" + b);\nSystem.out.println(\"-------------------\");\n\n// AND - both must be true\nSystem.out.println(\"a && b: \" + (a && b));  // false\nSystem.out.println(\"a && a: \" + (a && a));  // true\n\n// OR - at least one must be true\nSystem.out.println(\"a || b: \" + (a || b));  // true\nSystem.out.println(\"b || b: \" + (b || b));  // false\n\n// NOT - reverses the value\nSystem.out.println(\"!a: \" + (!a));  // false\nSystem.out.println(\"!b: \" + (!b));  // true",
+      "metadata": {
+        "language": "java",
+        "id": "logical-examples",
+        "executionSummary": {
+          "executionOrder": 14,
+          "success": true
+        }
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "a = true, b = false\r\n-------------------\r\na && b: false\r\na && a: true\r\na || b: true\r\nb || b: false\r\n!a: false\r\n!b: true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "id": "logical-practical",
+      "cell_type": "code",
+      "source": "// Practical Example: Checking eligibility\nint age = 21;\nboolean hasLicense = true;\nboolean hasInsurance = true;\n\n// Can the person rent a car?\n// Must be 21+ AND have a license AND have insurance\nboolean canRentCar = (age >= 21) && hasLicense && hasInsurance;\nSystem.out.println(\"Can rent car: \" + canRentCar);\n\n// Is the person a teenager or senior (discounted ticket)?\nint movieAge = 15;\nboolean getsDiscount = (movieAge < 18) || (movieAge >= 65);\nSystem.out.println(\"Gets discount: \" + getsDiscount);",
+      "metadata": {
+        "language": "java",
+        "id": "logical-practical",
+        "executionSummary": {
+          "executionOrder": 18,
+          "success": true
+        }
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Can rent car: true\r\nGets discount: true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
+    },
+    {
+      "id": "a01f6ae0-526e-4483-bcac-51058624a593",
+      "cell_type": "code",
+      "source": "int age = 21;\r\nboolean hasLicense = true;\r\nboolean hasInsurance = true;\r\n\r\nboolean canRentCar = (age >= 21) && hasLicense && hasInsurance;\r\nSystem.out.println(canRentCar);",
+      "metadata": {
+        "language": "java",
+        "id": "a01f6ae0-526e-4483-bcac-51058624a593",
+        "executionSummary": {
+          "executionOrder": 33,
+          "success": true
+        }
+      },
+      "execution_count": 33,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "true\r\n"
+          },
+          "metadata": {},
+          "execution_count": 33
+        }
+      ]
+    },
+    {
+      "id": "unary-intro",
+      "cell_type": "markdown",
+      "source": "## 5. Unary Operators\n\nOperators that work on a single operand.\n\n| Operator | Name | Description |\n|----------|------|-------------|\n| `++` | Increment | Increases value by 1 |\n| `--` | Decrement | Decreases value by 1 |\n| `+` | Unary plus | Indicates positive (rarely used) |\n| `-` | Unary minus | Negates a value |\n| `!` | Logical NOT | Inverts boolean |",
+      "metadata": {
+        "language": "markdown",
+        "id": "unary-intro"
+      }
+    },
+    {
+      "id": "4db0b39b-e396-43bb-8a94-d985041d280f",
+      "cell_type": "code",
+      "source": "int countdown = 10;\r\ncountdown --;\r\ncountdown --;\r\ncountdown ++;\r\nSystem.out.println(countdown);",
+      "metadata": {
+        "language": "java",
+        "id": "4db0b39b-e396-43bb-8a94-d985041d280f",
+        "executionSummary": {
+          "executionOrder": 37,
+          "success": true
+        }
+      },
+      "execution_count": 37,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "9\r\n"
+          },
+          "metadata": {},
+          "execution_count": 37
+        }
+      ]
+    },
+    {
+      "id": "increment-decrement",
+      "cell_type": "code",
+      "source": "// Increment and Decrement\nint count = 5;\n\ncount++;  // count = count + 1\nSystem.out.println(\"After count++: \" + count);  // 6\n\ncount--;  // count = count - 1\nSystem.out.println(\"After count--: \" + count);  // 5\n\n// Unary minus\nint positive = 10;\nint negative = -positive;\nSystem.out.println(\"positive: \" + positive);\nSystem.out.println(\"negative: \" + negative);",
+      "metadata": {
+        "language": "java",
+        "id": "increment-decrement",
+        "executionSummary": {
+          "executionOrder": 38,
+          "success": true
+        }
+      },
+      "execution_count": 38,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "After count++: 6\r\nAfter count--: 5\r\npositive: 10\r\nnegative: -10\r\n"
+          },
+          "metadata": {},
+          "execution_count": 38
+        }
+      ]
+    },
+    {
+      "id": "pre-post-intro",
+      "cell_type": "markdown",
+      "source": "### Pre-increment vs Post-increment\n\nThe position of `++` or `--` matters when used in expressions:\n\n- **Pre-increment (`++x`)**: Increment first, then use the value\n- **Post-increment (`x++`)**: Use the value first, then increment",
+      "metadata": {
+        "language": "markdown",
+        "id": "pre-post-intro"
+      }
+    },
+    {
+      "id": "pre-post-examples",
+      "cell_type": "code",
+      "source": "// Pre-increment vs Post-increment\nint a = 5;\nint b = 5;\n\n// Post-increment: use first, then increment\nSystem.out.println(\"a++ = \" + (a++)); // Prints 5, then a becomes 6\nSystem.out.println(\"a is now: \" + a);  // 6\n\n// Pre-increment: increment first, then use\nSystem.out.println(\"++b = \" + (++b)); // b becomes 6, then prints 6\nSystem.out.println(\"b is now: \" + b);  // 6",
+      "metadata": {
+        "language": "java",
+        "id": "pre-post-examples",
+        "executionSummary": {
+          "executionOrder": 39,
+          "success": true
+        }
+      },
+      "execution_count": 39,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "a++ = 5\r\na is now: 6\r\n++b = 6\r\nb is now: 6\r\n"
+          },
+          "metadata": {},
+          "execution_count": 39
+        }
+      ]
+    },
+    {
+      "id": "d5a96458-b350-4705-9337-d2d0f77d3ff3",
+      "cell_type": "code",
+      "source": "double price = 2500.50;\r\nint qty= 8;\r\n\r\n// lets increment quantity\r\nqty++;\r\nSystem.out.println(\"Updated Quantity: \" + qty); \r\n++qty;\r\nSystem.out.println(\"Updated Quantity after ++qty: \" + qty);",
+      "metadata": {
+        "language": "java",
+        "id": "d5a96458-b350-4705-9337-d2d0f77d3ff3",
+        "executionSummary": {
+          "executionOrder": 40,
+          "success": true
+        }
+      },
+      "execution_count": 40,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Updated Quantity: 9\r\nUpdated Quantity after ++qty: 10\r\n"
+          },
+          "metadata": {},
+          "execution_count": 40
+        }
+      ]
+    },
+    {
+      "id": "ternary-intro",
+      "cell_type": "markdown",
+      "source": "## 6. Ternary Operator\n\nA shorthand way to write simple if-else statements.\n\n### Syntax:\n```java\nvariable = (condition) ? valueIfTrue : valueIfFalse;\n```\n\nIt's like asking: \"Is this condition true? If yes, use this value; if no, use that value.\"",
+      "metadata": {
+        "language": "markdown",
+        "id": "ternary-intro"
+      }
+    },
+    {
+      "id": "ternary-examples",
+      "cell_type": "code",
+      "source": "// Ternary Operator\nint age = 20;\n\n// Traditional if-else way:\n\n// if(expression){action1;} \n// else{alternative action;}\n\nString status1;\nif (age >= 18) {\n    status1 = \"Adult\";\n} else {\n    status1 = \"Minor\";\n}\nSystem.out.println(\"If-else: \" + status1);\n\n// Ternary operator way (same result, shorter code):\nString status2 = (age >= 18) ? \"Adult\" : \"Minor\";\nSystem.out.println(\"Ternary: \" + status2);",
+      "metadata": {
+        "language": "java",
+        "id": "ternary-examples",
+        "executionSummary": {
+          "executionOrder": 41,
+          "success": true
+        }
+      },
+      "execution_count": 41,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "If-else: Adult\r\nTernary: Adult\r\n"
+          },
+          "metadata": {},
+          "execution_count": 41
+        }
+      ]
+    },
+    {
+      "id": "7fd6502d-c120-4506-b855-36bb34f04c51",
+      "cell_type": "code",
+      "source": "int age = 18;\r\nString status3 = (age <=17)? \"Yes! Can Vote\":\"No! Can't Vote\";\r\nSystem.out.println(\"Eligible? \" + status3)",
+      "metadata": {
+        "language": "java",
+        "id": "7fd6502d-c120-4506-b855-36bb34f04c51",
+        "executionSummary": {
+          "executionOrder": 42,
+          "success": true
+        }
+      },
+      "execution_count": 42,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Eligible? No! Can't Vote\r\n"
+          },
+          "metadata": {},
+          "execution_count": 42
+        }
+      ]
+    },
+    {
+      "id": "ternary-more",
+      "cell_type": "code",
+      "source": "// More ternary examples\n\n// Find the larger number\nint a = 10;\nint b = 20;\nint max = (a > b) ? a : b;\nSystem.out.println(\"Maximum: \" + max);\n\n// Absolute value\nint number = -15;\nint absolute = (number < 0) ? -number : number;\nSystem.out.println(\"Absolute value of \" + number + \" is \" + absolute);\n\n// Pass or fail\nint score = 75;\nString result = (score >= 60) ? \"Pass\" : \"Fail\";\nSystem.out.println(\"Score \" + score + \": \" + result);",
+      "metadata": {
+        "language": "java",
+        "id": "ternary-more",
+        "executionSummary": {
+          "executionOrder": 43,
+          "success": true
+        }
+      },
+      "execution_count": 43,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Maximum: 20\r\nAbsolute value of -15 is 15\r\nScore 75: Pass\r\n"
+          },
+          "metadata": {},
+          "execution_count": 43
+        }
+      ]
+    },
+    {
+      "id": "ea6bdd20-c094-4234-9ad2-8560559227cd",
+      "cell_type": "code",
+      "source": "int max = (a >b )? a: b;\r\nSystem.out.println(\"maximum number is \" + max)",
+      "metadata": {
+        "language": "java",
+        "id": "ea6bdd20-c094-4234-9ad2-8560559227cd",
+        "executionSummary": {
+          "executionOrder": 44,
+          "success": true
+        }
+      },
+      "execution_count": 44,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "maximum number is 20\r\n"
+          },
+          "metadata": {},
+          "execution_count": 44
+        }
+      ]
+    },
+    {
+      "id": "precedence-intro",
+      "cell_type": "markdown",
+      "source": "## Operator Precedence\n\nWhen multiple operators are used in an expression, Java follows a specific order (like PEMDAS in math).\n\n### Precedence (High to Low):\n1. Parentheses `()`\n2. Unary operators `++`, `--`, `!`\n3. Multiplication, Division, Modulus `*`, `/`, `%`\n4. Addition, Subtraction `+`, `-`\n5. Comparison `<`, `>`, `<=`, `>=`\n6. Equality `==`, `!=`\n7. Logical AND `&&`\n8. Logical OR `||`\n9. Assignment `=`, `+=`, etc.\n\n**Tip:** When in doubt, use parentheses to make your intent clear!",
+      "metadata": {
+        "language": "markdown",
+        "id": "precedence-intro"
+      }
+    },
+    {
+      "id": "precedence-examples",
+      "cell_type": "code",
+      "source": "// Operator Precedence\n\n// Without parentheses - follows precedence rules\nint result1 = 2 + 3 * 4;  // 3*4 first, then +2 = 14\nSystem.out.println(\"2 + 3 * 4 = \" + result1);\n\n// With parentheses - override precedence\nint result2 = (2 + 3) * 4;  // 2+3 first, then *4 = 20\nSystem.out.println(\"(2 + 3) * 4 = \" + result2);\n\n// Complex example\nint result3 = 10 - 4 / 2 + 3;  // 4/2=2, then 10-2=8, then 8+3=11\nSystem.out.println(\"10 - 4 / 2 + 3 = \" + result3);\n\n// Clear with parentheses\nint result4 = ((10 - 4) / 2) + 3;  // 6/2=3, then 3+3=6\nSystem.out.println(\"((10 - 4) / 2) + 3 = \" + result4);",
+      "metadata": {
+        "language": "java",
+        "id": "precedence-examples",
+        "executionSummary": {
+          "executionOrder": 45,
+          "success": true
+        }
+      },
+      "execution_count": 45,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "2 + 3 * 4 = 14\r\n(2 + 3) * 4 = 20\r\n10 - 4 / 2 + 3 = 11\r\n((10 - 4) / 2) + 3 = 6\r\n"
+          },
+          "metadata": {},
+          "execution_count": 45
+        }
+      ]
+    },
+    {
+      "id": "practical-example",
+      "cell_type": "markdown",
+      "source": "## Practical Example: Simple Calculator",
+      "metadata": {
+        "language": "markdown",
+        "id": "practical-example"
+      }
+    },
+    {
+      "id": "calculator-example",
+      "cell_type": "code",
+      "source": "// Simple Calculator\ndouble num1 = 20;\ndouble num2 = 8;\n\nSystem.out.println(\"===== CALCULATOR =====\");\nSystem.out.println(\"Number 1: \" + num1);\nSystem.out.println(\"Number 2: \" + num2);\nSystem.out.println(\"======================\");\nSystem.out.println(\"Addition: \" + num1 + \" + \" + num2 + \" = \" + (num1 + num2));\nSystem.out.println(\"Subtraction: \" + num1 + \" - \" + num2 + \" = \" + (num1 - num2));\nSystem.out.println(\"Multiplication: \" + num1 + \" * \" + num2 + \" = \" + (num1 * num2));\nSystem.out.println(\"Division: \" + num1 + \" / \" + num2 + \" = \" + (num1 / num2));\nSystem.out.println(\"Modulus: \" + num1 + \" % \" + num2 + \" = \" + (num1 % num2));\nSystem.out.println(\"======================\");",
+      "metadata": {
+        "language": "java",
+        "id": "calculator-example",
+        "executionSummary": {
+          "executionOrder": 46,
+          "success": true
+        }
+      },
+      "execution_count": 46,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "===== CALCULATOR =====\r\nNumber 1: 20.0\r\nNumber 2: 8.0\r\n======================\r\nAddition: 20.0 + 8.0 = 28.0\r\nSubtraction: 20.0 - 8.0 = 12.0\r\nMultiplication: 20.0 * 8.0 = 160.0\r\nDivision: 20.0 / 8.0 = 2.5\r\nModulus: 20.0 % 8.0 = 4.0\r\n======================\r\n"
+          },
+          "metadata": {},
+          "execution_count": 46
+        }
+      ]
+    },
+    {
+      "id": "exercises-intro",
+      "cell_type": "markdown",
+      "source": "## Practice Exercises\n\n### Exercise 1: Circle Calculations\nGiven a radius, calculate the area and circumference of a circle.\n- Area = PI * radius * radius\n- Circumference = 2 * PI * radius",
+      "metadata": {
+        "language": "markdown",
+        "id": "exercises-intro"
+      }
+    },
+    {
+      "id": "exercise-1",
+      "cell_type": "code",
+      "source": "// Exercise 1: Circle Calculations\n// Use Math.PI for the value of PI\n\ndouble radius = 5.0;\ndouble pi = 22/7;\n// Calculate area and circumference\ndouble area= pi * radius * radius;\nSystem.out.print(area)",
+      "metadata": {
+        "language": "java",
+        "id": "exercise-1",
+        "executionSummary": {
+          "executionOrder": 47,
+          "success": true
+        }
+      },
+      "execution_count": 47,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "75.0"
+          },
+          "metadata": {},
+          "execution_count": 47
+        }
+      ]
+    },
+    {
+      "id": "f55fca23-b003-4eb1-ab72-212bc45222d9",
+      "cell_type": "code",
+      "source": "double circumference = 2 * pi *radius;\r\nSystem.out.print(circumference);",
+      "metadata": {
+        "language": "java",
+        "id": "f55fca23-b003-4eb1-ab72-212bc45222d9",
+        "executionSummary": {
+          "executionOrder": 48,
+          "success": true
+        }
+      },
+      "execution_count": 48,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "30.0"
+          },
+          "metadata": {},
+          "execution_count": 48
+        }
+      ]
+    },
+    {
+      "id": "32faeea4-95d8-4e18-aacd-373956d8ad14",
+      "cell_type": "code",
+      "source": "double area = pi * Math.pow(radius,2);\r\nSystem.out.print(area);",
+      "metadata": {
+        "language": "java",
+        "id": "32faeea4-95d8-4e18-aacd-373956d8ad14",
+        "executionSummary": {
+          "executionOrder": 49,
+          "success": true
+        }
+      },
+      "execution_count": 49,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "75.0"
+          },
+          "metadata": {},
+          "execution_count": 49
+        }
+      ]
+    },
+    {
+      "id": "exercise-2-intro",
+      "cell_type": "markdown",
+      "source": "### Exercise 2: Grade Checker\nUse the ternary operator to check if a score is passing (>= 60) or failing.",
+      "metadata": {
+        "language": "markdown",
+        "id": "exercise-2-intro"
+      }
+    },
+    {
+      "id": "exercise-2",
+      "cell_type": "code",
+      "source": "// Exercise 2: Grade Checker using ternary operator\nint score = 75;\n\n// Use ternary operator to set result to \"Pass\" or \"Fail\"\n// Write your code below:\n\nString check = (score >= 75) ? \"You passed\":\"You failed\";\nSystem.out.print(check)",
+      "metadata": {
+        "language": "java",
+        "id": "exercise-2",
+        "executionSummary": {
+          "executionOrder": 50,
+          "success": true
+        }
+      },
+      "execution_count": 50,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "You passed"
+          },
+          "metadata": {},
+          "execution_count": 50
+        }
+      ]
+    },
+    {
+      "id": "exercise-3-intro",
+      "cell_type": "markdown",
+      "source": "### Exercise 3: Eligibility Check\nCheck if a person is eligible to vote (age >= 18 AND is a citizen).",
+      "metadata": {
+        "language": "markdown",
+        "id": "exercise-3-intro"
+      }
+    },
+    {
+      "id": "exercise-3",
+      "cell_type": "code",
+      "source": "// Exercise 3: Voting Eligibility\nint age = 20;\nboolean isCitizen = true;\n\n// Check if eligible to vote using logical operators\n// Write your code below:\n\nboolean eligible = (age >= 18) && isCitizen;\nSystem.out.print(eligible);",
+      "metadata": {
+        "language": "java",
+        "id": "exercise-3",
+        "executionSummary": {
+          "executionOrder": 51,
+          "success": true
+        }
+      },
+      "execution_count": 51,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "true"
+          },
+          "metadata": {},
+          "execution_count": 51
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "cell_type": "markdown",
+      "source": "## Summary - What You Learned\n\nIn this part, you learned:\n\n- **Arithmetic Operators**: `+`, `-`, `*`, `/`, `%`\n- **Assignment Operators**: `=`, `+=`, `-=`, `*=`, `/=`, `%=`\n- **Comparison Operators**: `==`, `!=`, `>`, `<`, `>=`, `<=`\n- **Logical Operators**: `&&` (AND), `||` (OR), `!` (NOT)\n- **Unary Operators**: `++`, `--`, `!`\n- **Ternary Operator**: `condition ? valueIfTrue : valueIfFalse`\n- **Operator Precedence**: The order in which operations are performed\n\n## Key Points to Remember\n\n1. `=` is assignment, `==` is comparison\n2. Integer division truncates (no decimals)\n3. `%` gives the remainder after division\n4. `&&` requires ALL conditions to be true\n5. `||` requires AT LEAST ONE condition to be true\n6. Use parentheses when in doubt about precedence\n\n---\n\n### Next Up: Part 4 - Control Flow (if/else, switch)\n\nLearn how to make decisions in your code!",
+      "metadata": {
+        "language": "markdown",
+        "id": "summary"
+      }
+    }
+  ]
+}
