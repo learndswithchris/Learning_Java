@@ -344,24 +344,61 @@
       }
     },
     {
+      "id": "c7750391-f851-4fd4-8002-873c79d14c48",
+      "cell_type": "markdown",
+      "source": "### Deeper: What is `switch`? (Definition)\n\nA `switch` selects one of many code paths based on the value of a single expression. It's most helpful when you compare the same variable against many specific constant values.\n\n**Real-world applications**:\n\n- Menu-driven programs (ATM, CLI menus) where the user picks a numbered option.\n- Protocol or message handlers where a message type determines the action to take.\n- Mapping codes to labels (HTTP status codes → messages, error codes → handlers, day/month numbers → names).\n- Simple state machines with a small set of discrete states.\n\n**Idea and logic behind using `switch`**:\n\n- Readability: groups all value-based branches together so it's easier to scan than many `else if` statements.\n- Intent: shows clearly that one variable is being matched against constants, which documents your design choice.\n- Maintainability: adding or removing cases is straightforward and localized.\n- Performance: for large numbers of cases the compiler can optimize a `switch` (e.g., jump tables); this is a secondary benefit.\n\n**When to consider `switch` (practical guidance)**:\n\n- Use `switch` when you are comparing the same variable against several discrete constant values (typically 3 or more cases).\n- Prefer `if-else` or range checks when conditions involve ranges or complex boolean expressions (e.g., `x > 10 && y < 5`).\n- Prefer modern switch expressions (arrow `->`) when you need concise, expression-style returns (Java 14+).\n\nQuick rule of thumb: If you're matching one variable to many constants, use `switch`. If you're testing ranges or different variables, use `if`/`else if`.",
+      "metadata": {
+        "language": "markdown",
+        "id": "c7750391-f851-4fd4-8002-873c79d14c48"
+      }
+    },
+    {
       "id": "switch-example",
       "cell_type": "code",
-      "source": "// Day of the week\nint dayNumber = 3;\nString dayName;\n\nswitch (dayNumber) {\n    case 1:\n        dayName = \"Monday\";\n        break;\n    case 2:\n        dayName = \"Tuesday\";\n        break;\n    case 3:\n        dayName = \"Wednesday\";\n        break;\n    case 4:\n        dayName = \"Thursday\";\n        break;\n    case 5:\n        dayName = \"Friday\";\n        break;\n    case 6:\n        dayName = \"Saturday\";\n        break;\n    case 7:\n        dayName = \"Sunday\";\n        break;\n    default:\n        dayName = \"Invalid day\";\n}\n\nSystem.out.println(\"Day \" + dayNumber + \" is \" + dayName);",
+      "source": "// Day of the week\nint dayNumber = 4; // 1 for Monday, 2 for Tuesday, ..., 7 for Sunday\nString dayName;\n\nswitch (dayNumber) {\n    case 1:\n        dayName = \"Monday\";\n        break;\n    case 2:\n        dayName = \"Tuesday\";\n        break;\n    case 3:\n        dayName = \"Wednesday\";\n        break;\n    case 4:\n        dayName = \"Thursday\";\n        break;\n    case 5:\n        dayName = \"Friday\";\n        break;\n    case 6:\n        dayName = \"Saturday\";\n        break;\n    case 7:\n        dayName = \"Sunday\";\n        break;\n    default:\n        dayName = \"Invalid day\";\n}\n\nSystem.out.println(\"Day \" + dayNumber + \" is \" + dayName);",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "switch-example",
+        "executionSummary": {
+          "executionOrder": 11,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Day 4 is Thursday\r\n"
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
     },
     {
       "id": "switch-string",
       "cell_type": "code",
-      "source": "// Switch with Strings\nString fruit = \"apple\";\n\nswitch (fruit) {\n    case \"apple\":\n        System.out.println(\"Apples are red or green.\");\n        break;\n    case \"banana\":\n        System.out.println(\"Bananas are yellow.\");\n        break;\n    case \"orange\":\n        System.out.println(\"Oranges are orange!\");\n        break;\n    default:\n        System.out.println(\"Unknown fruit.\");\n}",
+      "source": "// Switch with Strings\nString fruit = \"orange\";\n\nswitch (fruit) {\n    case \"apple\":\n        System.out.println(\"Apples are red or green.\");\n        break;\n    case \"banana\":\n        System.out.println(\"Bananas are yellow.\");\n        break;\n    case \"orange\":\n        System.out.println(\"Oranges are orange!\");\n        break;\n    default:\n        System.out.println(\"Unknown fruit.\");\n}",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "switch-string",
+        "executionSummary": {
+          "executionOrder": 13,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Oranges are orange!\r\n"
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
     },
     {
       "id": "switch-fallthrough",
@@ -375,12 +412,49 @@
     {
       "id": "switch-fallthrough-example",
       "cell_type": "code",
-      "source": "// Grouping cases - intentional fall-through\nint month = 7;\nString season;\n\nswitch (month) {\n    case 12:\n    case 1:\n    case 2:\n        season = \"Winter\";\n        break;\n    case 3:\n    case 4:\n    case 5:\n        season = \"Spring\";\n        break;\n    case 6:\n    case 7:\n    case 8:\n        season = \"Summer\";\n        break;\n    case 9:\n    case 10:\n    case 11:\n        season = \"Fall\";\n        break;\n    default:\n        season = \"Invalid month\";\n}\n\nSystem.out.println(\"Month \" + month + \" is in \" + season);",
+      "source": "// Grouping cases - intentional fall-through\nint month = 6;\nString season;\n\nswitch (month) {\n    case 12:\n    case 1:\n    case 2:\n        season = \"Winter\";\n        break;\n    case 3:\n    case 4:\n    case 5:\n        season = \"Spring\";\n        break;\n    case 6:\n    case 7:\n    case 8:\n        season = \"Summer\";\n        break;\n    case 9:\n    case 10:\n    case 11:\n        season = \"Fall\";\n        break;\n    default:\n        season = \"Invalid month\";\n}\n\nSystem.out.println(\"Month \" + month + \" is in \" + season);",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "switch-fallthrough-example",
+        "executionSummary": {
+          "executionOrder": 15,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Month 6 is in Summer\r\n"
+          },
+          "metadata": {},
+          "execution_count": 15
+        }
+      ]
+    },
+    {
+      "id": "bc986714-f92b-40ec-84fb-85c57a767e13",
+      "cell_type": "code",
+      "source": "int month = 8;\r\nString season;\r\n\r\nswitch(month)\r\n{\r\n    case 12:\r\n    case 1:\r\n    case 2:\r\n    season = \"winter\";\r\n    break;\r\n\r\n    case 3:\r\n    case 4:\r\n    case 5:\r\n    season = \"spring\";\r\n    break;\r\n\r\n    case 6:\r\n    case 7:\r\n    case 8:\r\n    season = \"summer\";\r\n    break;\r\n\r\n    case 9:\r\n    case 10:\r\n    case 11:\r\n    season = \"fall\";\r\n    break;\r\n    \r\n    default:\r\n    season = \"invalid month\";\r\n    break;\r\n}\r\nSystem.out.println(\"Month \" + month + \" is in \" + season);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 18,
+          "success": true
+        }
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Month 8 is in summer\r\n"
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
     },
     {
       "id": "switch-expression-intro",
@@ -392,14 +466,51 @@
       }
     },
     {
+      "id": "6c01cf87-9bb5-4e94-b600-5539b5334a6e",
+      "cell_type": "code",
+      "source": "int month = 9;\r\nString season;\r\n\r\nswitch(month)\r\n{\r\n    case 12, 1,2 -> season = \"winter\";\r\n\r\n    case 3,4,5 -> season = \"spring\";\r\n    \r\n    case 6,7,8 -> season = \"summer\";\r\n    \r\n    case 9,10,11 -> season = \"fall\";\r\n\r\n    default -> season = \"invalid month\";\r\n    \r\n};\r\nSystem.out.println(\"Month \" + month + \" is in \" + season);",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 23,
+          "success": true
+        }
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Month 9 is in fall\r\n"
+          },
+          "metadata": {},
+          "execution_count": 23
+        }
+      ]
+    },
+    {
       "id": "switch-expression-example",
       "cell_type": "code",
-      "source": "// Modern switch expression (cleaner syntax)\nint dayNumber = 5;\n\nString dayType = switch (dayNumber) {\n    case 1, 2, 3, 4, 5 -> \"Weekday\";\n    case 6, 7 -> \"Weekend\";\n    default -> \"Invalid day\";\n};\n\nSystem.out.println(\"Day \" + dayNumber + \" is a \" + dayType);",
+      "source": "// Modern switch expression (cleaner syntax)\nint dayNumber = 1;\n\nString dayType = switch (dayNumber) {\n    case 2, 3, 4, 5,6 -> \"Weekday\";\n    case 1, 7 -> \"Weekend\";\n    default -> \"Invalid day\";\n};\n\nSystem.out.println(\"Day \" + dayNumber + \" is a \" + dayType);",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "switch-expression-example",
+        "executionSummary": {
+          "executionOrder": 25,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 25,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Day 1 is a Weekend\r\n"
+          },
+          "metadata": {},
+          "execution_count": 25
+        }
+      ]
     },
     {
       "id": "when-to-use",
@@ -422,12 +533,145 @@
     {
       "id": "atm-example",
       "cell_type": "code",
-      "source": "// Simple ATM Simulation\ndouble balance = 1000.00;\nint choice = 2; // Simulating user selecting option 2\ndouble amount = 200.00; // Simulating user entering an amount\n\nSystem.out.println(\"===== ATM MENU =====\");\nSystem.out.println(\"1. Check Balance\");\nSystem.out.println(\"2. Deposit\");\nSystem.out.println(\"3. Withdraw\");\nSystem.out.println(\"4. Exit\");\nSystem.out.println(\"====================\");\nSystem.out.println(\"Selected option: \" + choice);\nSystem.out.println();\n\nswitch (choice) {\n    case 1:\n        System.out.println(\"Your balance is: $\" + balance);\n        break;\n        \n    case 2:\n        if (amount > 0) {\n            balance += amount;\n            System.out.println(\"Deposited: $\" + amount);\n            System.out.println(\"New balance: $\" + balance);\n        } else {\n            System.out.println(\"Invalid amount.\");\n        }\n        break;\n        \n    case 3:\n        if (amount > 0 && amount <= balance) {\n            balance -= amount;\n            System.out.println(\"Withdrawn: $\" + amount);\n            System.out.println(\"Remaining balance: $\" + balance);\n        } else if (amount > balance) {\n            System.out.println(\"Insufficient funds!\");\n        } else {\n            System.out.println(\"Invalid amount.\");\n        }\n        break;\n        \n    case 4:\n        System.out.println(\"Thank you for using our ATM. Goodbye!\");\n        break;\n        \n    default:\n        System.out.println(\"Invalid option. Please try again.\");\n}",
+      "source": "// Simple ATM Simulation\ndouble balance = 1000.00;\nint choice = 3; // Simulating user selecting option 2\ndouble amount = 200.00; // Simulating user entering an amount\n\nSystem.out.println(\"===== ATM MENU =====\");\nSystem.out.println(\"1. Check Balance\");\nSystem.out.println(\"2. Deposit\");\nSystem.out.println(\"3. Withdraw\");\nSystem.out.println(\"4. Exit\");\nSystem.out.println(\"====================\");\nSystem.out.println(\"Selected option: \" + choice);\nSystem.out.println();\n\nswitch (choice) {\n    case 1:\n        System.out.println(\"Your balance is: N\" + balance);\n        break;\n        \n    case 2:\n        if (amount > 0) {\n            balance += amount;\n            System.out.println(\"Deposited: N\" + amount);\n            System.out.println(\"New balance: N\" + balance);\n        } else {\n            System.out.println(\"Invalid amount.\");\n        }\n        break;\n        \n    case 3:\n        if (amount > 0 && amount <= balance) {\n            balance -= amount;\n            System.out.println(\"Withdrawn: N\" + amount);\n            System.out.println(\"Remaining balance: N\" + balance);\n        } else if (amount > balance) {\n            System.out.println(\"Insufficient funds!\");\n        } else {\n            System.out.println(\"Invalid amount.\");\n        }\n        break;\n        \n    case 4:\n        System.out.println(\"Thank you for using our ATM. Goodbye!\");\n        break;\n        \n    default:\n        System.out.println(\"Invalid option. Please try again.\");\n}",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "id": "atm-example",
+        "executionSummary": {
+          "executionOrder": 29,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 29,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "===== ATM MENU =====\r\n1. Check Balance\r\n2. Deposit\r\n3. Withdraw\r\n4. Exit\r\n====================\r\nSelected option: 3\r\n\r\nWithdrawn: N200.0\r\nRemaining balance: N800.0\r\n"
+          },
+          "metadata": {},
+          "execution_count": 29
+        }
+      ]
+    },
+    {
+      "id": "aa7d7d3e-f881-4120-80a1-f9ea94a3e34b",
+      "cell_type": "code",
+      "source": "// ATM Simulation Using Modern SWitch Expression\r\n\r\ndouble balance = 1000.00;\r\nint choice = 3; // Simulating user selecting option 1\r\ndouble amountWithdraw = 200.00; // Simulating user entering an amount to withdraw\r\ndouble amountDeposit = 300.00; // Simulating user entering an amount to deposit\r\n\r\n// Switch expression for user menu\r\nSystem.out.println(\"===== ATM MENU =====\");\r\nSystem.out.println(\"1. Check Balance\");\r\nSystem.out.println(\"2. Deposit\");\r\nSystem.out.println(\"3. Withdraw\");\r\nSystem.out.println(\"4. Exit\");\r\nSystem.out.println(\"====================\");\r\nSystem.out.println(\"Selected option: \" + choice);\r\n\r\n// Using switch expression to determine action\r\nswitch(choice){\r\n    case 1 -> System.out.println(\"Your balance is N\" + balance);\r\n    case 2 ->{\r\n        if (amountDeposit >0){\r\n            balance += amountDeposit;\r\n            System.out.println(\"Deposited: N\" + amountDeposit);\r\n            System.out.println(\"New balance: N\" + balance);\r\n        } else {\r\n            System.out.println(\"Invalid deposit amount.\");\r\n        }\r\n    }\r\n    case 3 -> {\r\n        if(amountWithdraw > 0 && amountWithdraw <= balance){\r\n            balance -= amountWithdraw;\r\n            System.out.println(\"Withdrawn: N\" + amountWithdraw);\r\n            System.out.println(\"Remaining balance: N\" + balance);\r\n        } else if (amountWithdraw > balance){\r\n            System.out.println(\"Insufficient funds!\");\r\n        } else {\r\n            System.out.println(\"Invalid withdrawal amount.\");\r\n        }\r\n    }\r\n    case 4 -> System.out.println(\"Thank you for using our ATM. Goodbye!\");\r\n    default -> System.out.println(\"Invalid option. Please try again.\");\r\n    }\r\n",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 33,
+          "success": true
+        }
+      },
+      "execution_count": 33,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "===== ATM MENU =====\r\n1. Check Balance\r\n2. Deposit\r\n3. Withdraw\r\n4. Exit\r\n====================\r\nSelected option: 3\r\nWithdrawn: N200.0\r\nRemaining balance: N800.0\r\n"
+          },
+          "metadata": {},
+          "execution_count": 33
+        }
+      ]
+    },
+    {
+      "id": "b2f261e7-e7d1-4879-aacd-c8b145f8e4c1",
+      "cell_type": "markdown",
+      "source": "### Network Failure Scenario: Preventing Double Debit\n\n**Problem:** If a withdrawal succeeds (balance deducted) but network fails before confirmation, retrying causes a double debit.\n\n**Real-world Solutions:**\n\n1. **Idempotent Transactions** – Each transaction gets a unique ID. Before processing, check if that ID was already handled.\n2. **Transaction Log** – Store every withdrawal with timestamp + ID. On retry, check the log first.\n3. **Provisional Debit** – Deduct tentatively, confirm only after successful API response, rollback on failure.\n4. **User Confirmation Flow** – Show pending transaction, ask user to confirm receipt of funds before finalizing.\n\n**Example: Idempotent Withdrawal**",
+      "metadata": {
+        "language": "markdown",
+        "id": "b2f261e7-e7d1-4879-aacd-c8b145f8e4c1"
+      }
+    },
+    {
+      "id": "00695784-cf74-4b5a-aca8-3c4bac2b9921",
+      "cell_type": "code",
+      "source": "// Idempotent Withdrawal: Check transaction log before processing\nimport java.util.HashSet;\n\ndouble balance = 1000.00;\ndouble withdrawAmount = 200.00;\nHashSet<String> processedTransactions = new HashSet<>(); // Simulates a database log\nString transactionID = \"TXN-20260221-001\"; // Unique ID from server\n\n// First attempt (normal flow)\nSystem.out.println(\"=== FIRST WITHDRAWAL ATTEMPT ===\");\nif (processedTransactions.contains(transactionID)) {\n    System.out.println(\"Transaction already processed. Duplicate request blocked!\");\n} else {\n    if (withdrawAmount > 0 && withdrawAmount <= balance) {\n        balance -= withdrawAmount;\n        processedTransactions.add(transactionID); // Log the transaction\n        System.out.println(\"Withdrawal successful: -N\" + withdrawAmount);\n        System.out.println(\"New balance: N\" + balance);\n        System.out.println(\"Transaction ID: \" + transactionID);\n    } else {\n        System.out.println(\"Insufficient funds or invalid amount.\");\n    }\n}\n\n// Simulate network failure: User retries with same transaction ID\nSystem.out.println(\"\\n=== RETRY AFTER NETWORK FAILURE (Same Transaction ID) ===\");\nSystem.out.println(\"User retries with same transaction ID: \" + transactionID);\nif (processedTransactions.contains(transactionID)) {\n    System.out.println(\"✓ Transaction already processed. Duplicate request blocked!\");\n    System.out.println(\"Balance remains: N\" + balance); // No second debit!\n} else {\n    if (withdrawAmount > 0 && withdrawAmount <= balance) {\n        balance -= withdrawAmount;\n        processedTransactions.add(transactionID);\n        System.out.println(\"Withdrawal successful: -N\" + withdrawAmount);\n        System.out.println(\"New balance: N\" + balance);\n    }\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 34,
+          "success": true
+        }
+      },
+      "execution_count": 34,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "=== FIRST WITHDRAWAL ATTEMPT ===\r\nWithdrawal successful: -N200.0\r\nNew balance: N800.0\r\nTransaction ID: TXN-20260221-001\r\n\n=== RETRY AFTER NETWORK FAILURE (Same Transaction ID) ===\r\nUser retries with same transaction ID: TXN-20260221-001\r\n? Transaction already processed. Duplicate request blocked!\r\nBalance remains: N800.0\r\n"
+          },
+          "metadata": {},
+          "execution_count": 34
+        }
+      ]
+    },
+    {
+      "id": "407e7d9e-a495-4680-b443-986ac2f2cddb",
+      "cell_type": "code",
+      "source": "// Pattern 2: Provisional Debit with Confirmation\nSystem.out.println(\"\\n\\n=== PROVISIONAL DEBIT + USER CONFIRMATION ===\");\ndouble balance2 = 1000.00;\ndouble withdrawAmount2 = 200.00;\nString transactionStatus = \"PENDING\"; // Can be: PENDING, CONFIRMED, ROLLED_BACK\n\nSystem.out.println(\"Step 1: Check if withdrawal is valid\");\nif (withdrawAmount2 > 0 && withdrawAmount2 <= balance2) {\n    System.out.println(\"✓ Amount valid. Proceeding...\");\n    \n    System.out.println(\"\\nStep 2: Deduct provisionally (before network call)\");\n    double provisionalBalance = balance2 - withdrawAmount2;\n    transactionStatus = \"PENDING\";\n    System.out.println(\"Provisional deduction: -N\" + withdrawAmount2);\n    System.out.println(\"Provisional balance: N\" + provisionalBalance);\n    \n    System.out.println(\"\\nStep 3: Simulate API call & confirmation\");\n    boolean apiSuccess = true; // In real code, this depends on network response\n    \n    if (apiSuccess) {\n        balance2 = provisionalBalance; // Confirm the deduction\n        transactionStatus = \"CONFIRMED\";\n        System.out.println(\"✓ API confirmed. Transaction CONFIRMED.\");\n        System.out.println(\"Final balance: N\" + balance2);\n    } else {\n        // Rollback: API failed, restore balance\n        transactionStatus = \"ROLLED_BACK\";\n        System.out.println(\"✗ API failed. Transaction ROLLED BACK.\");\n        System.out.println(\"Balance restored to: N\" + balance2);\n    }\n} else {\n    System.out.println(\"✗ Invalid amount or insufficient funds. No deduction made.\");\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 35,
+          "success": true
+        }
+      },
+      "execution_count": 35,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "\n\n=== PROVISIONAL DEBIT + USER CONFIRMATION ===\r\nStep 1: Check if withdrawal is valid\r\n? Amount valid. Proceeding...\r\n\nStep 2: Deduct provisionally (before network call)\r\nProvisional deduction: -N200.0\r\nProvisional balance: N800.0\r\n\nStep 3: Simulate API call & confirmation\r\n? API confirmed. Transaction CONFIRMED.\r\nFinal balance: N800.0\r\n"
+          },
+          "metadata": {},
+          "execution_count": 35
+        }
+      ]
+    },
+    {
+      "id": "1bb9995a-4a3e-4dcd-8304-87de6a106f4d",
+      "cell_type": "markdown",
+      "source": "### Key Takeaways: Preventing Double Debit\n\n| Pattern | Number of Customers | How It Works |\n|---------|-----------|-------------|\n| **Idempotent Transactions** | < 1,000 customers | Check transaction log before processing. Same ID = skip. Simple, single-server friendly. |\n| **Provisional Debit** | 1,000 - 100,000 customers | Deduct tentatively, confirm after API response, rollback on failure. Handles moderate scale. |\n| **Database Constraints** | 100,000 - 1M customers | Use database unique constraint on `(account_id, transaction_id)`. Enterprise-grade reliability. |\n| **Message Queues** | > 1M customers | Queue withdrawal request, retry only if acknowledgment fails. Distributed, highly resilient systems. |\n\n**Best Practice for ATM/Banking:**\n1. Always generate a unique transaction ID on client side.\n2. Check transaction log *before* processing.\n3. Deduct balance.\n4. Log the transaction.\n5. Send confirmation to user.\n6. If network fails, user can safely retry → system detects duplicate and blocks it.\n\nThis is why real ATMs show \"Do not remove card\" during transaction—they're confirming the network handshake before finalizing the debit.",
+      "metadata": {
+        "language": "markdown",
+        "id": "1bb9995a-4a3e-4dcd-8304-87de6a106f4d"
+      }
+    },
+    {
+      "id": "62a4eef8-27bb-4264-9872-7ebf2e21f5e8",
+      "cell_type": "markdown",
+      "source": "### Banking & Microfinance: Which Pattern to Use?\n\n**Microfinance Banks** (10K – 500K customers):\n- **Primary Choice: Database Constraints** (100K – 1M customer range)\n- **Secondary: Provisional Debit** with confirmation for extra safety\n- Key: Use database-level `UNIQUE` constraint on `(account_id, transaction_id)` as the safety net\n\n**Commercial Banks** (1M+ customers):\n- **Combination of ALL four approaches**:\n  1. **Message Queues** – Route all withdrawals through a reliable queue (prevents request loss)\n  2. **Database Constraints** – `UNIQUE(account_id, transaction_id)` as the ultimate safeguard\n  3. **Idempotent Transaction IDs** – Client sends unique ID; server checks before processing\n  4. **Provisional Debit** – Optional extra layer for high-risk transactions\n\n**Why Database Constraints Matter Most:**\n- Enforced at storage layer (cannot be bypassed, even if application code has bugs)\n- Multiple server instances can process requests in parallel without coordinating\n- Prevents double debits even if all other safety checks fail\n\n**Real-world example flow:**\n```\nCustomer at ATM/Mobile App\n    ↓\nGenerate unique TXN-ID (e.g., TXN-20260221-12345)\n    ↓\nSend to API Server\n    ↓\nServer: Check if TXN-ID exists in transaction log\n    ↓\nMessage Queue: Enqueue withdrawal request\n    ↓\nDatabase: Process transaction\n  → Check UNIQUE constraint on (account_id, txn_id)\n  → Deduct balance\n  → Log transaction\n    ↓\nConfirmation: Send back to customer\n    ↓\nIf network fails: Customer retries with same TXN-ID\n  → Database detects duplicate TXN-ID → REJECTS it\n  → Balance protected ✓\n```\n\n**Real-world insight:**\nMajor banks (ICICI, HDFC, State Bank, ICBC, Wells Fargo) use all four patterns combined—but the database unique constraint is the **non-negotiable foundation**. This is why ATMs show **\"Do not remove card during transaction\"**—they're confirming the network handshake before finalizing the debit.",
+      "metadata": {
+        "language": "markdown",
+        "id": "62a4eef8-27bb-4264-9872-7ebf2e21f5e8"
+      }
+    },
+    {
+      "id": "fe7f9e82-58ae-409a-943f-f4e66df444b8",
+      "cell_type": "code",
+      "source": "// Bank Implementation: Database Constraint Pattern\n// Simulates how a commercial bank would prevent double debits\n\nimport java.util.HashMap;\n\n// Simulating a bank database with transactions table\nclass BankDatabase {\n    // UUID -> Transaction record\n    private HashMap<String, String> transactions = new HashMap<>();\n    \n    // This simulates a SQL UNIQUE constraint on (account_id, transaction_id)\n    public synchronized boolean validateAndLogTransaction(String accountId, String transactionId) {\n        String key = accountId + \"-\" + transactionId;\n        \n        // Database constraint logic: Check if this exact (accountId, txnId) pair exists\n        if (transactions.containsKey(key)) {\n            return false; // Duplicate detected - REJECTED\n        }\n        \n        // If not found, log it\n        transactions.put(key, \"PROCESSED-\" + System.currentTimeMillis());\n        return true; // SUCCESS\n    }\n}\n\n// Simulating a customer withdrawal with network retries\nBankDatabase bankDB = new BankDatabase();\n\nSystem.out.println(\"=== BANK WITHDRAWAL WITH DUPLICATE DETECTION ===\\n\");\n\n// Customer details\nString accountId = \"ACC-2024-987654\";\nString transactionId = \"TXN-20260221-12345\"; // Generated by mobile app\ndouble amount = 5000.00;\n\n// First attempt\nSystem.out.println(\"First withdrawal attempt:\");\nSystem.out.println(\"Account: \" + accountId);\nSystem.out.println(\"Transaction ID: \" + transactionId);\nSystem.out.println(\"Amount: N\" + amount);\n\nif (bankDB.validateAndLogTransaction(accountId, transactionId)) {\n    System.out.println(\"✓ Transaction logged successfully.\");\n    System.out.println(\"  Balance deducted from account.\");\n    System.out.println(\"  Sending confirmation to customer...\");\n    System.out.println(\"  >> Network failure occurs before confirmation reaches customer! <<\");\n} else {\n    System.out.println(\"✗ Duplicate transaction detected. Rejected.\");\n}\n\n// Customer doesn't receive confirmation and retries (same transaction ID)\nSystem.out.println(\"\\n---\\n\");\nSystem.out.println(\"Customer retries (same transaction ID due to network failure):\");\n\nif (bankDB.validateAndLogTransaction(accountId, transactionId)) {\n    System.out.println(\"✓ Transaction logged successfully.\");\n    System.out.println(\"  Balance deducted from account.\");\n    System.out.println(\"  Confirmation sent.\");\n} else {\n    System.out.println(\"✗ Duplicate transaction detected. REJECTED.\");\n    System.out.println(\"  → Balance remains unchanged.\");\n    System.out.println(\"  → System shows: 'You already withdrew this amount.'\");\n    System.out.println(\"  → Double debit PREVENTED! ✓\");\n}",
+      "metadata": {
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 36,
+          "success": true
+        }
+      },
+      "execution_count": 36,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "=== BANK WITHDRAWAL WITH DUPLICATE DETECTION ===\n\r\nFirst withdrawal attempt:\r\nAccount: ACC-2024-987654\r\nTransaction ID: TXN-20260221-12345\r\nAmount: N5000.0\r\n? Transaction logged successfully.\r\n  Balance deducted from account.\r\n  Sending confirmation to customer...\r\n  >> Network failure occurs before confirmation reaches customer! <<\r\n\n---\n\r\nCustomer retries (same transaction ID due to network failure):\r\n? Duplicate transaction detected. REJECTED.\r\n  ? Balance remains unchanged.\r\n  ? System shows: 'You already withdrew this amount.'\r\n  ? Double debit PREVENTED! ?\r\n"
+          },
+          "metadata": {},
+          "execution_count": 36
+        }
+      ]
     },
     {
       "id": "exercises-intro",
@@ -439,14 +683,27 @@
       }
     },
     {
-      "id": "exercise-1",
+      "id": "14d3e1dd-c621-427a-bedf-9a8a2e9e3940",
       "cell_type": "code",
-      "source": "// Exercise 1: Age Category\nint age = 25;\n\n// Write if-else-if to categorize the age\n// Print the category\n\n// Write your code below:\n",
+      "source": "// Exercise 1: Age Category\r\nint age = 244;\r\nString category;\r\n\r\n// Use if-else-if for age ranges\r\nif (age >= 0 && age <= 12) {\r\n    category = \"Child\";\r\n} else if (age >= 13 && age <= 19) {\r\n    category = \"Teenager\";\r\n} else if (age >= 20 && age <= 64) {\r\n    category = \"Adult\";\r\n} else if (age >= 65) {\r\n    category = \"Senior\";\r\n} else {\r\n    category = \"Invalid age\";\r\n}\r\n\r\nSystem.out.println(\"Age: \" + age);\r\nSystem.out.println(\"Category: \" + category);",
       "metadata": {
-        "language": "java"
+        "language": "java",
+        "executionSummary": {
+          "executionOrder": 44,
+          "success": true
+        }
       },
-      "execution_count": null,
-      "outputs": []
+      "execution_count": 44,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Age: 244\r\nCategory: Senior\r\n"
+          },
+          "metadata": {},
+          "execution_count": 44
+        }
+      ]
     },
     {
       "id": "exercise-2-intro",
