@@ -1,0 +1,323 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "header",
+      "cell_type": "markdown",
+      "source": "# Part 5: Loops\n\n## What are Loops?\n\nLoops allow you to repeat a block of code multiple times. Instead of writing the same code over and over, you can use a loop to do it automatically.\n\n### Why Use Loops?\n\nWithout loops:\n```java\nSystem.out.println(\"Hello\");\nSystem.out.println(\"Hello\");\nSystem.out.println(\"Hello\");\nSystem.out.println(\"Hello\");\nSystem.out.println(\"Hello\");\n// ... and so on for 100 times? Tedious!\n```\n\nWith loops:\n```java\nfor (int i = 0; i < 100; i++) {\n    System.out.println(\"Hello\");\n}\n// Much better!\n```\n\n## Types of Loops in Java\n\n1. **`for` loop** - When you know how many times to repeat\n2. **`while` loop** - When you don't know how many times, but have a condition\n3. **`do-while` loop** - Like while, but runs at least once\n4. **Enhanced `for` loop** - For iterating through arrays/collections",
+      "metadata": {
+        "language": "markdown"
+      }
+    },
+    {
+      "id": "for-intro",
+      "cell_type": "markdown",
+      "source": "## 1. The `for` Loop\n\nThe most common loop. Use it when you know exactly how many times you want to repeat.\n\n### Syntax:\n```java\nfor (initialization; condition; update) {\n    // code to repeat\n}\n```\n\n### How it works:\n1. **Initialization**: Runs once at the start (usually create a counter)\n2. **Condition**: Checked before each iteration (loop continues if `true`)\n3. **Update**: Runs after each iteration (usually increment the counter)\n\n### Visual:\n```\n    +----------------+\n    | Initialization |\n    +-------+--------+\n            |\n            v\n    +-------+--------+\n    |   Condition    |<--------+\n    +-------+--------+         |\n            |                  |\n      true  |  false           |\n            v    |             |\n    +-------+----+---+         |\n    | Execute Code   |         |\n    +-------+--------+         |\n            |                  |\n            v                  |\n    +-------+--------+         |\n    |     Update     |---------+\n    +----------------+\n```",
+      "metadata": {
+        "language": "markdown"
+      }
+    },
+    {
+      "id": "for-basic",
+      "cell_type": "code",
+      "source": "// Basic for loop - counting from 1 to 5\nfor (int i = 1; i <= 5; i++) {\n    System.out.println(\"Count: \" + i);\n}\n\nSystem.out.println(\"Loop finished!\");",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "for-breakdown",
+      "cell_type": "markdown",
+      "source": "### Breaking Down the Loop:\n\n```java\nfor (int i = 1; i <= 5; i++)\n```\n\n| Part | Code | Meaning |\n|------|------|----------|\n| Initialization | `int i = 1` | Start counter at 1 |\n| Condition | `i <= 5` | Continue while i is 5 or less |\n| Update | `i++` | Add 1 to i after each loop |\n\n### Execution trace:\n- i=1: Print \"Count: 1\", then i becomes 2\n- i=2: Print \"Count: 2\", then i becomes 3\n- i=3: Print \"Count: 3\", then i becomes 4\n- i=4: Print \"Count: 4\", then i becomes 5\n- i=5: Print \"Count: 5\", then i becomes 6\n- i=6: Condition false (6 is not <= 5), loop ends",
+      "metadata": {
+        "language": "markdown"
+      }
+    },
+    {
+      "id": "for-variations",
+      "cell_type": "code",
+      "source": "// Counting down\nSystem.out.println(\"Countdown:\");\nfor (int i = 5; i >= 1; i--) {\n    System.out.println(i);\n}\nSystem.out.println(\"Liftoff!\");\n\nSystem.out.println();\n\n// Counting by 2s\nSystem.out.println(\"Even numbers 2-10:\");\nfor (int i = 2; i <= 10; i += 2) {\n    System.out.println(i);\n}",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "for-practical",
+      "cell_type": "code",
+      "source": "// Practical example: Sum of numbers 1 to 10\nint sum = 0;\n\nfor (int i = 1; i <= 10; i++) {\n    sum += i;  // Add each number to sum\n}\n\nSystem.out.println(\"Sum of 1 to 10 = \" + sum);",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "for-multiplication",
+      "cell_type": "code",
+      "source": "// Multiplication table\nint number = 7;\n\nSystem.out.println(\"Multiplication table for \" + number + \":\");\nSystem.out.println(\"---------------------\");\n\nfor (int i = 1; i <= 10; i++) {\n    int result = number * i;\n    System.out.println(number + \" x \" + i + \" = \" + result);\n}",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "while-intro",
+      "cell_type": "markdown",
+      "source": "## 2. The `while` Loop\n\nUse when you don't know exactly how many times to repeat, but you have a condition to check.\n\n### Syntax:\n```java\nwhile (condition) {\n    // code to repeat\n}\n```\n\nThe loop continues as long as the condition is `true`. Be careful: if the condition never becomes `false`, you'll have an infinite loop!",
+      "metadata": {
+        "language": "markdown"
+      }
+    },
+    {
+      "id": "while-basic",
+      "cell_type": "code",
+      "source": "// Basic while loop\nint count = 1;\n\nwhile (count <= 5) {\n    System.out.println(\"Count: \" + count);\n    count++;  // Don't forget to update! Otherwise infinite loop\n}\n\nSystem.out.println(\"Loop finished!\");",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "while-unknown-iterations",
+      "cell_type": "code",
+      "source": "// While loop - when iterations are unknown\n// Example: Keep dividing by 2 until we reach 1\n\nint number = 64;\nint steps = 0;\n\nSystem.out.println(\"Starting with: \" + number);\n\nwhile (number > 1) {\n    number = number / 2;\n    steps++;\n    System.out.println(\"After step \" + steps + \": \" + number);\n}\n\nSystem.out.println(\"Reached 1 in \" + steps + \" steps!\");",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "while-digits",
+      "cell_type": "code",
+      "source": "// Count digits in a number\nint number = 12345;\nint original = number;\nint digitCount = 0;\n\nwhile (number > 0) {\n    number = number / 10;  // Remove last digit\n    digitCount++;\n}\n\nSystem.out.println(original + \" has \" + digitCount + \" digits.\");",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "do-while-intro",
+      "cell_type": "markdown",
+      "source": "## 3. The `do-while` Loop\n\nSimilar to `while`, but the code runs **at least once** because the condition is checked AFTER the first execution.\n\n### Syntax:\n```java\ndo {\n    // code to repeat (runs at least once)\n} while (condition);\n```\n\n### Key Difference:\n- `while`: Check condition first, then execute\n- `do-while`: Execute first, then check condition",
+      "metadata": {
+        "language": "markdown"
+      }
+    },
+    {
+      "id": "do-while-example",
+      "cell_type": "code",
+      "source": "// do-while - runs at least once\nint count = 1;\n\ndo {\n    System.out.println(\"Count: \" + count);\n    count++;\n} while (count <= 5);\n\nSystem.out.println(\"Loop finished!\");",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "do-while-difference",
+      "cell_type": "code",
+      "source": "// Showing the difference - condition is false from start\n\nSystem.out.println(\"--- while loop ---\");\nint x = 10;\nwhile (x < 5) {\n    System.out.println(\"While: \" + x);  // Never runs!\n    x++;\n}\nSystem.out.println(\"While loop didn't run because 10 < 5 is false\\n\");\n\nSystem.out.println(\"--- do-while loop ---\");\nint y = 10;\ndo {\n    System.out.println(\"Do-while: \" + y);  // Runs once!\n    y++;\n} while (y < 5);\nSystem.out.println(\"Do-while ran once even though condition was false\");",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "do-while-menu",
+      "cell_type": "code",
+      "source": "// do-while is great for menus - you always want to show it at least once\n// Simulating menu display\n\nint choice = 0;\nint attempt = 0;\n\ndo {\n    attempt++;\n    System.out.println(\"\\n===== MENU (Attempt \" + attempt + \") =====\");\n    System.out.println(\"1. Start Game\");\n    System.out.println(\"2. Settings\");\n    System.out.println(\"3. Exit\");\n    \n    // Simulating user input (in real app, you'd read from Scanner)\n    if (attempt == 1) choice = 2;      // First time: Settings\n    else if (attempt == 2) choice = 1; // Second time: Start Game\n    else choice = 3;                   // Third time: Exit\n    \n    System.out.println(\"User selected: \" + choice);\n    \n} while (choice != 3);\n\nSystem.out.println(\"\\nGoodbye!\");",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "break-continue-intro",
+      "cell_type": "markdown",
+      "source": "## Loop Control: `break` and `continue`\n\n### `break`\nExits the loop immediately, skipping all remaining iterations.\n\n### `continue`\nSkips the rest of the current iteration and jumps to the next one.",
+      "metadata": {
+        "language": "markdown"
+      }
+    },
+    {
+      "id": "break-example",
+      "cell_type": "code",
+      "source": "// break - exit the loop early\nSystem.out.println(\"Searching for number 5:\");\n\nfor (int i = 1; i <= 10; i++) {\n    System.out.println(\"Checking \" + i + \"...\");\n    \n    if (i == 5) {\n        System.out.println(\"Found it! Breaking out of loop.\");\n        break;  // Exit the loop\n    }\n}\n\nSystem.out.println(\"Search complete.\");",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "continue-example",
+      "cell_type": "code",
+      "source": "// continue - skip certain iterations\nSystem.out.println(\"Printing odd numbers only:\");\n\nfor (int i = 1; i <= 10; i++) {\n    if (i % 2 == 0) {\n        continue;  // Skip even numbers\n    }\n    System.out.println(i);\n}\n\nSystem.out.println(\"Done!\");",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "nested-loops-intro",
+      "cell_type": "markdown",
+      "source": "## Nested Loops\n\nYou can put loops inside other loops. The inner loop completes ALL its iterations for EACH iteration of the outer loop.\n\nThink of it like a clock:\n- Outer loop = hours (runs 12 times)\n- Inner loop = minutes (runs 60 times for EACH hour)",
+      "metadata": {
+        "language": "markdown"
+      }
+    },
+    {
+      "id": "nested-basic",
+      "cell_type": "code",
+      "source": "// Nested loops - basic example\nfor (int i = 1; i <= 3; i++) {\n    System.out.println(\"Outer loop i = \" + i);\n    \n    for (int j = 1; j <= 3; j++) {\n        System.out.println(\"  Inner loop j = \" + j);\n    }\n    \n    System.out.println();  // Empty line after inner loop completes\n}",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "nested-pattern",
+      "cell_type": "code",
+      "source": "// Creating patterns with nested loops\n// Right triangle of stars\n\nint rows = 5;\n\nSystem.out.println(\"Right Triangle:\");\nfor (int i = 1; i <= rows; i++) {\n    for (int j = 1; j <= i; j++) {\n        System.out.print(\"* \");\n    }\n    System.out.println();  // Move to next line\n}",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "nested-rectangle",
+      "cell_type": "code",
+      "source": "// Rectangle of numbers\nint rows = 4;\nint cols = 6;\n\nSystem.out.println(\"Number Rectangle:\");\nint number = 1;\n\nfor (int i = 1; i <= rows; i++) {\n    for (int j = 1; j <= cols; j++) {\n        System.out.print(number + \"\\t\");\n        number++;\n    }\n    System.out.println();\n}",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "nested-multiplication",
+      "cell_type": "code",
+      "source": "// Multiplication table (full)\nSystem.out.println(\"Multiplication Table (1-5):\");\nSystem.out.println();\n\n// Header row\nSystem.out.print(\"   |\");\nfor (int i = 1; i <= 5; i++) {\n    System.out.print(\"\\t\" + i);\n}\nSystem.out.println();\nSystem.out.println(\"---|--------------------------------\");\n\n// Table body\nfor (int i = 1; i <= 5; i++) {\n    System.out.print(\" \" + i + \" |\");\n    for (int j = 1; j <= 5; j++) {\n        System.out.print(\"\\t\" + (i * j));\n    }\n    System.out.println();\n}",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "practical-example",
+      "cell_type": "markdown",
+      "source": "## Practical Example: Finding Prime Numbers",
+      "metadata": {
+        "language": "markdown"
+      }
+    },
+    {
+      "id": "prime-example",
+      "cell_type": "code",
+      "source": "// Find all prime numbers from 2 to 30\nSystem.out.println(\"Prime numbers from 2 to 30:\");\n\nfor (int num = 2; num <= 30; num++) {\n    boolean isPrime = true;\n    \n    // Check if num is divisible by any number from 2 to num-1\n    for (int i = 2; i < num; i++) {\n        if (num % i == 0) {\n            isPrime = false;\n            break;  // No need to check further\n        }\n    }\n    \n    if (isPrime) {\n        System.out.print(num + \" \");\n    }\n}\nSystem.out.println();",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "loop-comparison",
+      "cell_type": "markdown",
+      "source": "## When to Use Each Loop?\n\n| Loop Type | When to Use |\n|-----------|-------------|\n| `for` | Know exact number of iterations |\n| `while` | Don't know iterations, check condition first |\n| `do-while` | Must run at least once, then check condition |\n\n### Quick Decision:\n1. **Know how many times?** Use `for`\n2. **Need to run at least once?** Use `do-while`\n3. **Otherwise?** Use `while`",
+      "metadata": {
+        "language": "markdown"
+      }
+    },
+    {
+      "id": "common-mistakes",
+      "cell_type": "markdown",
+      "source": "## Common Mistakes to Avoid\n\n### 1. Infinite Loops\n```java\n// WRONG - i never changes!\nfor (int i = 0; i < 10; ) {\n    System.out.println(i);\n}\n\n// WRONG - condition never becomes false!\nint x = 1;\nwhile (x > 0) {\n    x++;  // x keeps increasing!\n}\n```\n\n### 2. Off-by-One Errors\n```java\n// Prints 1 to 9 (not 1 to 10!)\nfor (int i = 1; i < 10; i++) { }\n\n// Prints 1 to 10 (correct)\nfor (int i = 1; i <= 10; i++) { }\n```\n\n### 3. Modifying Loop Variable Incorrectly\n```java\n// Confusing - don't modify i inside the loop\nfor (int i = 0; i < 10; i++) {\n    i = i + 2;  // Unexpected behavior!\n}\n```",
+      "metadata": {
+        "language": "markdown"
+      }
+    },
+    {
+      "id": "exercises-intro",
+      "cell_type": "markdown",
+      "source": "## Practice Exercises\n\n### Exercise 1: Factorial\nCalculate the factorial of a number (e.g., 5! = 5 × 4 × 3 × 2 × 1 = 120)",
+      "metadata": {
+        "language": "markdown"
+      }
+    },
+    {
+      "id": "exercise-1",
+      "cell_type": "code",
+      "source": "// Exercise 1: Calculate factorial of 5\nint n = 5;\n\n// Use a for loop to calculate n!\n// Write your code below:\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "exercise-2-intro",
+      "cell_type": "markdown",
+      "source": "### Exercise 2: Fibonacci Sequence\nPrint the first 10 numbers of the Fibonacci sequence (0, 1, 1, 2, 3, 5, 8, 13, 21, 34).\nEach number is the sum of the two preceding ones.",
+      "metadata": {
+        "language": "markdown"
+      }
+    },
+    {
+      "id": "exercise-2",
+      "cell_type": "code",
+      "source": "// Exercise 2: Fibonacci sequence\n// Print first 10 Fibonacci numbers\n\n// Hint: Start with a=0, b=1, then each new number = a + b\n// Write your code below:\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "exercise-3-intro",
+      "cell_type": "markdown",
+      "source": "### Exercise 3: Number Pyramid\nCreate a number pyramid:\n```\n    1\n   121\n  12321\n 1234321\n123454321\n```",
+      "metadata": {
+        "language": "markdown"
+      }
+    },
+    {
+      "id": "exercise-3",
+      "cell_type": "code",
+      "source": "// Exercise 3: Number pyramid\nint rows = 5;\n\n// Use nested loops to create the pyramid\n// Write your code below:\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "summary",
+      "cell_type": "markdown",
+      "source": "## Summary - What You Learned\n\nIn this part, you learned:\n\n- **`for` loop**: Best when you know the number of iterations\n- **`while` loop**: Best when you have a condition to check first\n- **`do-while` loop**: Best when code must run at least once\n- **`break`**: Exit loop immediately\n- **`continue`**: Skip to next iteration\n- **Nested loops**: Loops inside loops for 2D patterns\n\n## Key Points to Remember\n\n1. Always ensure loops can terminate (avoid infinite loops)\n2. Be careful with loop conditions (`<` vs `<=`)\n3. `for` is great for counting\n4. `while` is great for unknown iterations\n5. `do-while` guarantees at least one execution\n6. Nested loops multiply iterations (outer × inner)\n\n---\n\n### Next Up: Part 6 - Arrays\n\nLearn how to store and work with collections of data!",
+      "metadata": {
+        "language": "markdown"
+      }
+    }
+  ]
+}

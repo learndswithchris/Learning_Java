@@ -1,0 +1,499 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 5,
+  "metadata": {
+    "language_info": {
+      "name": "java"
+    }
+  },
+  "cells": [
+    {
+      "id": "header",
+      "cell_type": "markdown",
+      "source": "# Part 4: Control Flow (Decision Making)\n\n## What is Control Flow?\n\nControl flow determines the order in which statements are executed. By default, code runs line by line from top to bottom. But with **control flow statements**, we can:\n\n- Make decisions (execute code only if a condition is true)\n- Choose between multiple options\n- Skip certain code blocks\n\n## Control Flow Statements in Java\n\n1. `if` statement\n2. `if-else` statement\n3. `if-else-if` ladder\n4. Nested `if` statements\n5. `switch` statement",
+      "metadata": {
+        "language": "markdown",
+        "id": "header"
+      }
+    },
+    {
+      "id": "if-intro",
+      "cell_type": "markdown",
+      "source": "## 1. The `if` Statement\n\nThe simplest form of decision making. It executes code only if a condition is `true`.\n\n### Syntax:\n```java\nif (condition) {\n    // code to execute if condition is true\n}\n```\n\n### Visual:\n```\n        +-------+\n        |  IF   |\n        +---+---+\n            |\n    +-------+-------+\n    |               |\n  true            false\n    |               |\n+---v---+           |\n|Execute|           |\n| Code  |           |\n+---+---+           |\n    |               |\n    +-------+-------+\n            |\n       Continue\n```",
+      "metadata": {
+        "language": "markdown",
+        "id": "if-intro"
+      }
+    },
+    {
+      "id": "if-examples",
+      "cell_type": "code",
+      "source": "// Simple if statement\nint age = 20;\n\nif (age >= 18) {\n    System.out.println(\"You are an adult.\");\n    System.out.println(\"You can vote!\");\n}\n\nSystem.out.println(\"Program continues...\");",
+      "metadata": {
+        "language": "java",
+        "id": "if-examples",
+        "executionSummary": {
+          "executionOrder": 13,
+          "success": true
+        }
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "You are an adult.\r\nYou can vote!\r\nProgram continues...\r\n"
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "id": "if-false-example",
+      "cell_type": "code",
+      "source": "// When condition is false, the if block is skipped\nint temperature = 20;\n\nif (temperature >=30) {\n    System.out.println(\"It's hot outside!\");\n    System.out.println(\"Wear light clothes.\");\n}\n\nSystem.out.println(\"Checking temperature complete.\");\n// Notice the if block didn't execute because 15 is not > 30",
+      "metadata": {
+        "language": "java",
+        "id": "if-false-example",
+        "executionSummary": {
+          "executionOrder": 12,
+          "success": true
+        }
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Checking temperature complete.\r\n"
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "id": "if-else-intro",
+      "cell_type": "markdown",
+      "source": "## 2. The `if-else` Statement\n\nWhen you want to do one thing if a condition is true, and something else if it's false.\n\n### Syntax:\n```java\nif (condition) {\n    // code if condition is true\n} else {\n    // code if condition is false\n}\n```",
+      "metadata": {
+        "language": "markdown",
+        "id": "if-else-intro"
+      }
+    },
+    {
+      "id": "if-else-examples",
+      "cell_type": "code",
+      "source": "// if-else statement\nint number = 21;\n\nif (number % 2 == 0) {\n    System.out.println(number + \" is even.\");\n} else {\n    System.out.println(number + \" is odd.\");\n}",
+      "metadata": {
+        "language": "java",
+        "id": "if-else-examples",
+        "executionSummary": {
+          "executionOrder": 18,
+          "success": true
+        }
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "21 is odd.\r\n"
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
+    },
+    {
+      "id": "if-else-more",
+      "cell_type": "code",
+      "source": "// Checking login credentials\nimport java.util.Scanner;\n\nScanner scanner = new Scanner(System.in);\nSystem.out.print(\"Enter you password: \");\nString userInput = scanner.nextLine();\n\n\nString password = \"secret123\";\n\nif (userInput.equals(password)) // if (userInput == password)\n {\n    System.out.println(\"Login successful!\");\n    System.out.println(\"Welcome back!\");\n} else {\n    System.out.println(\"Login failed!\");\n    System.out.println(\"Incorrect password.\");\n}",
+      "metadata": {
+        "language": "java",
+        "id": "if-else-more",
+        "executionSummary": {
+          "executionOrder": 23,
+          "success": true
+        }
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Enter you password: Login successful!\r\nWelcome back!\r\n"
+          },
+          "metadata": {},
+          "execution_count": 23
+        }
+      ]
+    },
+    {
+      "id": "89b2c38e-f261-4be4-97a4-98a7c4dd3bd7",
+      "cell_type": "code",
+      "source": "",
+      "metadata": {
+        "language": "java",
+        "id": "89b2c38e-f261-4be4-97a4-98a7c4dd3bd7",
+        "executionSummary": {
+          "executionOrder": 24,
+          "success": true
+        }
+      },
+      "execution_count": 24,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Enter your score: Good Job!\r\nYOu got a B!\r\n"
+          },
+          "metadata": {},
+          "execution_count": 24
+        }
+      ]
+    },
+    {
+      "id": "string-comparison-note",
+      "cell_type": "markdown",
+      "source": "### Important: Comparing Strings\n\nFor Strings, use `.equals()` instead of `==`:\n- `==` compares if they're the same object in memory\n- `.equals()` compares if they have the same content\n\n```java\nString a = \"hello\";\nString b = \"hello\";\n\na.equals(b)  // true - same content\na == b       // might be true or false depending on how strings were created\n```",
+      "metadata": {
+        "language": "markdown",
+        "id": "string-comparison-note"
+      }
+    },
+    {
+      "id": "if-else-if-intro",
+      "cell_type": "markdown",
+      "source": "## 3. The `if-else-if` Ladder\n\nWhen you have multiple conditions to check.\n\n### Syntax:\n```java\nif (condition1) {\n    // code if condition1 is true\n} else if (condition2) {\n    // code if condition2 is true\n} else if (condition3) {\n    // code if condition3 is true\n} else {\n    // code if all conditions are false\n}\n```\n\nJava checks conditions from top to bottom and executes the first block where the condition is true.",
+      "metadata": {
+        "language": "markdown",
+        "id": "if-else-if-intro"
+      }
+    },
+    {
+      "id": "if-else-if-example",
+      "cell_type": "code",
+      "source": "// Grade calculator\nint score = 85;\nchar grade;\n\nif (score >= 90) {\n    grade = 'A';\n} else if (score >= 80) {\n    grade = 'B';\n} else if (score >= 70) {\n    grade = 'C';\n} else if (score >= 60) {\n    grade = 'D';\n} else {\n    grade = 'F';\n}\n\nSystem.out.println(\"Score: \" + score);\nSystem.out.println(\"Grade: \" + grade);",
+      "metadata": {
+        "language": "java",
+        "id": "if-else-if-example",
+        "executionSummary": {
+          "executionOrder": 25,
+          "success": true
+        }
+      },
+      "execution_count": 25,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Score: 85\r\nGrade: B\r\n"
+          },
+          "metadata": {},
+          "execution_count": 25
+        }
+      ]
+    },
+    {
+      "id": "7957003d-a045-4bfe-b284-7c4a2a586593",
+      "cell_type": "code",
+      "source": "// Take an input\r\nimport java.util.Scanner;\r\n\r\nScanner scanner = new Scanner(System.in);\r\nSystem.out.print(\"Enter your score: \");\r\nint score = scanner.nextInt();\r\n\r\n// int score = 25;\r\nif(score >= 90){\r\n    System.out.println(\"Excellent!\");\r\n    System.out.println(\"Your score is: \" + score + \". You got an A!\");\r\n} else if(score >=80){\r\n    System.out.println(\"Good Job!\");\r\n    System.out.println(\"Your score is: \" + score + \". You got a B!\");\r\n} else if (score >= 70){\r\n    System.out.println(\"Not Bad!\");\r\n    System.out.println(\"Your score is: \" + score + \". You got a C!\");\r\n} else if (score >= 60){\r\n    System.out.println(\"You passed!\");\r\n    System.out.println(\"Your score is: \" + score + \". You got a D!\");\r\n} else {\r\n    System.out.println(\"Better luck next time!\");\r\n    System.out.println(\"Your score is: \" + score + \". You got an F!\");\r\n}",
+      "metadata": {
+        "language": "java",
+        "id": "7957003d-a045-4bfe-b284-7c4a2a586593",
+        "executionSummary": {
+          "executionOrder": 29,
+          "success": true
+        }
+      },
+      "execution_count": 29,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Enter your score: Excellent!\r\nYour score is: 90. You got an A!\r\n"
+          },
+          "metadata": {},
+          "execution_count": 29
+        }
+      ]
+    },
+    {
+      "id": "if-else-if-more",
+      "cell_type": "code",
+      "source": "// Time-based greeting\nint hour = 14; // 24-hour format\n\nif (hour < 12) {\n    System.out.println(\"Good morning!\");\n} else if (hour < 17) {\n    System.out.println(\"Good afternoon!\");\n} else if (hour < 21) {\n    System.out.println(\"Good evening!\");\n} else {\n    System.out.println(\"Good night!\");\n}",
+      "metadata": {
+        "language": "java",
+        "id": "if-else-if-more",
+        "executionSummary": {
+          "executionOrder": 30,
+          "success": true
+        }
+      },
+      "execution_count": 30,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Good afternoon!\r\n"
+          },
+          "metadata": {},
+          "execution_count": 30
+        }
+      ]
+    },
+    {
+      "id": "nested-if-intro",
+      "cell_type": "markdown",
+      "source": "## 4. Nested `if` Statements\n\nYou can put `if` statements inside other `if` statements to check multiple conditions in sequence.\n\n### Syntax:\n```java\nif (condition1) {\n    if (condition2) {\n        // code if both conditions are true\n    }\n}\n```",
+      "metadata": {
+        "language": "markdown",
+        "id": "nested-if-intro"
+      }
+    },
+    {
+      "id": "nested-if-example",
+      "cell_type": "code",
+      "source": "// Nested if - Checking eligibility for a loan\nint age = 15;\nint salary = 50000;\nint creditScore = 750;\n\nif (age >= 21) {\n    System.out.println(\"Age requirement: PASSED\");\n    \n    if (salary >= 30000) {\n        System.out.println(\"Salary requirement: PASSED\");\n        \n        if (creditScore >= 700) {\n            System.out.println(\"Credit score requirement: PASSED\");\n            System.out.println(\"==> Congratulations! You qualify for the loan!\");\n    } else {System.out.println(\"Credit score too low. Loan denied.\");}\n    } else {System.out.println(\"Salary too low. Loan denied.\");}\n    } else {System.out.println(\"You must be at least 21 years old.\");}",
+      "metadata": {
+        "language": "java",
+        "id": "nested-if-example",
+        "executionSummary": {
+          "executionOrder": 35,
+          "success": true
+        }
+      },
+      "execution_count": 35,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "You must be at least 21 years old.\r\n"
+          },
+          "metadata": {},
+          "execution_count": 35
+        }
+      ]
+    },
+    {
+      "id": "nested-vs-logical",
+      "cell_type": "markdown",
+      "source": "### Nested if vs Logical Operators\n\nNested if statements can often be simplified using logical operators:",
+      "metadata": {
+        "language": "markdown",
+        "id": "nested-vs-logical"
+      }
+    },
+    {
+      "id": "simplified-example",
+      "cell_type": "code",
+      "source": "// The same logic using logical AND\nint age = 25;\nint salary = 50000;\nint creditScore = 750;\n\n// All conditions in one line\nif (age >= 21 && salary >= 30000 && creditScore >= 700) {\n    System.out.println(\"Congratulations! You qualify for the loan!\");\n} else {\n    System.out.println(\"Sorry, you don't qualify for the loan.\");\n}\n\n// Use nested if when you need different messages for each failure\n// Use logical operators when you just need to check if all conditions pass",
+      "metadata": {
+        "language": "java",
+        "id": "simplified-example",
+        "executionSummary": {
+          "executionOrder": 2,
+          "success": true
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Congratulations! You qualify for the loan!\r\n"
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "id": "2895c0a1-ef09-4d5c-ab99-f300cce147e5",
+      "cell_type": "code",
+      "source": "//  Lets take input\r\n\r\nimport java.util.Scanner;\r\nScanner scanner = new Scanner(System.in);\r\n\r\nSystem.out.print(\"Enter your age: \");\r\nint age = scanner.nextInt();\r\nSystem.out.print(age);\r\n\r\nSystem.out.print(\"\\nEnter our salary: \");\r\nint salary = scanner.nextInt();\r\nSystem.out.print(salary);\r\n\r\nSystem.out.print(\"\\nEnter your credit score: \");\r\nint creditScore = scanner.nextInt();\r\nSystem.out.println(creditScore);\r\n\r\n// -----------------------------------------?\r\nSystem.out.println(\"\\nChecking loan eligibility...\");\r\nSystem.out.println(\"Decision: \");\r\n\r\nif (age >= 18 && salary >= 76000 && creditScore >= 600){\r\n    System.out.print(\"You are eligible for the loan.\");\r\n}\r\nelse{\r\n    System.out.print(\"You do not meet all the criteria for the loan.\");\r\n}",
+      "metadata": {
+        "language": "java",
+        "id": "2895c0a1-ef09-4d5c-ab99-f300cce147e5",
+        "executionSummary": {
+          "executionOrder": 9,
+          "success": true
+        }
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": "Enter your age: 67\nEnter our salary: 67\nEnter your credit score: 67\r\n\nChecking loan eligibility...\r\nDecision: \r\nYou do not meet all the criteria for the loan."
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "id": "switch-intro",
+      "cell_type": "markdown",
+      "source": "## 5. The `switch` Statement\n\nWhen you have many specific values to check (not ranges), `switch` can be cleaner than many `if-else-if` statements.\n\n### Syntax:\n```java\nswitch (variable) {\n    case value1:\n        // code for value1\n        break;\n    case value2:\n        // code for value2\n        break;\n    case value3:\n        // code for value3\n        break;\n    default:\n        // code if no case matches\n}\n```\n\n### Important:\n- The `break` statement exits the switch. Without it, execution \"falls through\" to the next case.\n- `default` is like `else` - it runs if no case matches (optional but recommended).\n- Switch works with: `byte`, `short`, `int`, `char`, `String`, and enums.",
+      "metadata": {
+        "language": "markdown",
+        "id": "switch-intro"
+      }
+    },
+    {
+      "id": "switch-example",
+      "cell_type": "code",
+      "source": "// Day of the week\nint dayNumber = 3;\nString dayName;\n\nswitch (dayNumber) {\n    case 1:\n        dayName = \"Monday\";\n        break;\n    case 2:\n        dayName = \"Tuesday\";\n        break;\n    case 3:\n        dayName = \"Wednesday\";\n        break;\n    case 4:\n        dayName = \"Thursday\";\n        break;\n    case 5:\n        dayName = \"Friday\";\n        break;\n    case 6:\n        dayName = \"Saturday\";\n        break;\n    case 7:\n        dayName = \"Sunday\";\n        break;\n    default:\n        dayName = \"Invalid day\";\n}\n\nSystem.out.println(\"Day \" + dayNumber + \" is \" + dayName);",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "switch-string",
+      "cell_type": "code",
+      "source": "// Switch with Strings\nString fruit = \"apple\";\n\nswitch (fruit) {\n    case \"apple\":\n        System.out.println(\"Apples are red or green.\");\n        break;\n    case \"banana\":\n        System.out.println(\"Bananas are yellow.\");\n        break;\n    case \"orange\":\n        System.out.println(\"Oranges are orange!\");\n        break;\n    default:\n        System.out.println(\"Unknown fruit.\");\n}",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "switch-fallthrough",
+      "cell_type": "markdown",
+      "source": "### Fall-through Behavior\n\nWithout `break`, execution continues to the next case. This can be useful intentionally:",
+      "metadata": {
+        "language": "markdown",
+        "id": "switch-fallthrough"
+      }
+    },
+    {
+      "id": "switch-fallthrough-example",
+      "cell_type": "code",
+      "source": "// Grouping cases - intentional fall-through\nint month = 7;\nString season;\n\nswitch (month) {\n    case 12:\n    case 1:\n    case 2:\n        season = \"Winter\";\n        break;\n    case 3:\n    case 4:\n    case 5:\n        season = \"Spring\";\n        break;\n    case 6:\n    case 7:\n    case 8:\n        season = \"Summer\";\n        break;\n    case 9:\n    case 10:\n    case 11:\n        season = \"Fall\";\n        break;\n    default:\n        season = \"Invalid month\";\n}\n\nSystem.out.println(\"Month \" + month + \" is in \" + season);",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "switch-expression-intro",
+      "cell_type": "markdown",
+      "source": "### Modern Switch Expressions (Java 14+)\n\nJava 14 introduced a cleaner switch syntax with arrow notation:",
+      "metadata": {
+        "language": "markdown",
+        "id": "switch-expression-intro"
+      }
+    },
+    {
+      "id": "switch-expression-example",
+      "cell_type": "code",
+      "source": "// Modern switch expression (cleaner syntax)\nint dayNumber = 5;\n\nString dayType = switch (dayNumber) {\n    case 1, 2, 3, 4, 5 -> \"Weekday\";\n    case 6, 7 -> \"Weekend\";\n    default -> \"Invalid day\";\n};\n\nSystem.out.println(\"Day \" + dayNumber + \" is a \" + dayType);",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "when-to-use",
+      "cell_type": "markdown",
+      "source": "## When to Use What?\n\n| Situation | Use |\n|-----------|-----|\n| Simple yes/no decision | `if-else` |\n| Multiple ranges to check | `if-else-if` |\n| Many specific values | `switch` |\n| Multiple conditions that ALL must be true | `if` with `&&` |\n| Multiple conditions where ANY can be true | `if` with `\\|\\|` |\n| Quick inline decision | Ternary operator |",
+      "metadata": {
+        "language": "markdown",
+        "id": "when-to-use"
+      }
+    },
+    {
+      "id": "practical-example",
+      "cell_type": "markdown",
+      "source": "## Practical Example: Simple ATM Menu",
+      "metadata": {
+        "language": "markdown",
+        "id": "practical-example"
+      }
+    },
+    {
+      "id": "atm-example",
+      "cell_type": "code",
+      "source": "// Simple ATM Simulation\ndouble balance = 1000.00;\nint choice = 2; // Simulating user selecting option 2\ndouble amount = 200.00; // Simulating user entering an amount\n\nSystem.out.println(\"===== ATM MENU =====\");\nSystem.out.println(\"1. Check Balance\");\nSystem.out.println(\"2. Deposit\");\nSystem.out.println(\"3. Withdraw\");\nSystem.out.println(\"4. Exit\");\nSystem.out.println(\"====================\");\nSystem.out.println(\"Selected option: \" + choice);\nSystem.out.println();\n\nswitch (choice) {\n    case 1:\n        System.out.println(\"Your balance is: $\" + balance);\n        break;\n        \n    case 2:\n        if (amount > 0) {\n            balance += amount;\n            System.out.println(\"Deposited: $\" + amount);\n            System.out.println(\"New balance: $\" + balance);\n        } else {\n            System.out.println(\"Invalid amount.\");\n        }\n        break;\n        \n    case 3:\n        if (amount > 0 && amount <= balance) {\n            balance -= amount;\n            System.out.println(\"Withdrawn: $\" + amount);\n            System.out.println(\"Remaining balance: $\" + balance);\n        } else if (amount > balance) {\n            System.out.println(\"Insufficient funds!\");\n        } else {\n            System.out.println(\"Invalid amount.\");\n        }\n        break;\n        \n    case 4:\n        System.out.println(\"Thank you for using our ATM. Goodbye!\");\n        break;\n        \n    default:\n        System.out.println(\"Invalid option. Please try again.\");\n}",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "exercises-intro",
+      "cell_type": "markdown",
+      "source": "## Practice Exercises\n\n### Exercise 1: Age Category\nWrite code that categorizes age into: Child (0-12), Teenager (13-19), Adult (20-64), Senior (65+).",
+      "metadata": {
+        "language": "markdown",
+        "id": "exercises-intro"
+      }
+    },
+    {
+      "id": "exercise-1",
+      "cell_type": "code",
+      "source": "// Exercise 1: Age Category\nint age = 25;\n\n// Write if-else-if to categorize the age\n// Print the category\n\n// Write your code below:\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "exercise-2-intro",
+      "cell_type": "markdown",
+      "source": "### Exercise 2: Calculator\nUse a switch statement to perform the correct operation based on an operator character (+, -, *, /).",
+      "metadata": {
+        "language": "markdown",
+        "id": "exercise-2-intro"
+      }
+    },
+    {
+      "id": "exercise-2",
+      "cell_type": "code",
+      "source": "// Exercise 2: Calculator with switch\ndouble num1 = 10;\ndouble num2 = 5;\nchar operator = '*';\n\n// Use switch to perform the operation and print the result\n// Handle division by zero!\n\n// Write your code below:\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "exercise-3-intro",
+      "cell_type": "markdown",
+      "source": "### Exercise 3: Ticket Price\nA movie theater charges based on age:\n- Children (under 12): $8\n- Adults (12-64): $15\n- Seniors (65+): $10\n- Tuesday special: Everyone gets $2 off!",
+      "metadata": {
+        "language": "markdown",
+        "id": "exercise-3-intro"
+      }
+    },
+    {
+      "id": "exercise-3",
+      "cell_type": "code",
+      "source": "// Exercise 3: Movie Ticket Price\nint age = 30;\nboolean isTuesday = true;\n\n// Calculate the ticket price based on age\n// Apply $2 discount if it's Tuesday\n// Print the final price\n\n// Write your code below:\n",
+      "metadata": {
+        "language": "java"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "id": "summary",
+      "cell_type": "markdown",
+      "source": "## Summary - What You Learned\n\nIn this part, you learned:\n\n- **`if` statement**: Execute code only when a condition is true\n- **`if-else` statement**: Choose between two options\n- **`if-else-if` ladder**: Check multiple conditions in sequence\n- **Nested `if`**: Put conditions inside other conditions\n- **`switch` statement**: Choose from many specific values\n- **Modern switch expressions**: Cleaner syntax with arrow notation\n\n## Key Points to Remember\n\n1. Conditions must evaluate to `boolean` (true/false)\n2. Use `{}` braces even for single statements (good practice)\n3. For Strings, use `.equals()` not `==`\n4. Don't forget `break` in switch statements!\n5. `default` in switch is like `else` - handles all other cases\n6. Use `&&` (AND) when ALL conditions must be true\n7. Use `||` (OR) when ANY condition can be true\n\n---\n\n### Next Up: Part 5 - Loops\n\nLearn how to repeat code with for, while, and do-while loops!",
+      "metadata": {
+        "language": "markdown",
+        "id": "summary"
+      }
+    }
+  ]
+}
